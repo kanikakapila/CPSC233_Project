@@ -16,7 +16,7 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("C:\\Users\\abrar.safwan\\git\\CPSC233_Project\\src\\application\\CarPerformance.fxml"));
-			Scene scene = new Scene(root,750,400);
+			Scene scene = new Scene(root,850,400);
 			// Removed
 			primaryStage.setTitle("Your Dream Car");
 			primaryStage.setScene(scene);

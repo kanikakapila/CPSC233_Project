@@ -41,7 +41,11 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Type of tires included in the pakage :" />
+            <Label text="Type of tires included in the pakage :">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
             <CheckBox mnemonicParsing="false" text="Summer Tires">
                <HBox.margin>
                   <Insets left="3.0" />
