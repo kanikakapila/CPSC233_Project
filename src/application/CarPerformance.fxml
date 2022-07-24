@@ -73,6 +73,30 @@
             </CheckBox>
          </children>
       </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Transmission Type: ">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ToggleButton mnemonicParsing="false" text="Automatic">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" text="Manual">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" text="Dual Transmission">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+         </children>
+      </HBox>
       <Button mnemonicParsing="false" text="Proceed To Appearance" />
    </children>
 </VBox>
