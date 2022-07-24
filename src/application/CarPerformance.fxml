@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label text="Choose the Engine Size for your Car in  cubic centimetres (cc).">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="45.0" prefWidth="149.0" text="Your Engine Size: ">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Slider majorTickUnit="500.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="368.0" showTickLabels="true" showTickMarks="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Method of Fuel">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ChoiceBox prefHeight="39.0" prefWidth="158.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+              <items>
+            	<FXCollections fx:factory="observableArrayList">
+            		<String fx:value="Gasoline" />
+            		<String fx:value="Petrol" />
+            		<String fx:value="Bio-Diesel" />
+            		<String fx:value="Hybrid" />
+            		<String fx:value="Electric" />
+            	</FXCollections>
+            </items>
+            </ChoiceBox>
+         </children>
+      </HBox>
+   </children>
 </VBox>
-
