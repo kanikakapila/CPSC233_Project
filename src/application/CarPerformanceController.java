@@ -2,8 +2,13 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class CarPerformanceController {
 
@@ -25,9 +30,29 @@ public class CarPerformanceController {
     @FXML
     private Label methodOfFuel;
 
+	public Stage applicationStage;
+
     @FXML
-    void proceedToAppearance(ActionEvent event) { 
-    	System.out.println("Button pressed");
+    void proceedToAppearance(ActionEvent event) {   
+    	HBox ColourofCarContainer = new HBox(); 
+    	Label ColourofCarLabel = new Label("Colour of Car");
+    	TextField ColourofCarTextfield = new TextField();  
+    	Label TypeofCarLabel = new Label("Type of Car");
+    	TextField TypeofCarTextfield = new TextField();
+    	
+    	
+    	
+    	Button backButton = new Button("Back"); 
+    	Button nextButton = new Button("Next");
+    	ColourofCarContainer.getChildren().addAll(ColourofCarLabel,ColourofCarTextfield);  
+    	ColourofCarContainer.getChildren().addAll(TypeofCarLabel,TypeofCarTextfield,backButton,nextButton);
+    	
+    	
+    	
+    	Scene proceedToApplicationScene = new Scene(ColourofCarContainer);  
+    	//backButton.setOnAction(backEvent -> primaryStage(Performance)); 
+    	applicationStage .setScene(proceedToApplicationScene);
+    	//System.out.println("Button pressed");
 
     }
 
