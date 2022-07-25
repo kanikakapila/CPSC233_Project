@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.VBox?>  
+<?import javafx.scene.layout.VBox?>
 <?import javafx.collections.FXCollections?>
 
-
-
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CarPerformanceController">
    <children>
       <Label text="Performance Screen">
          <font>
@@ -20,7 +19,7 @@
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="45.0" prefWidth="376.0" text="Your Engine Size (in Cubic Centimeters): ">
+            <Label fx:id="yourEngineSize" prefHeight="45.0" prefWidth="376.0" text="Your Engine Size (in Cubic Centimeters): ">
                <font>
                   <Font size="19.0" />
                </font>
@@ -30,15 +29,15 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="1819.0">
          <children>
-            <Label text="Method of Fuel"/> 
+            <Label fx:id="methodOfFuel" text="Method of Fuel" /> 
             
             <ChoiceBox fx:id="FXCollections" prefHeight="39.0" prefWidth="158.0">
             	<items>
             		<FXCollections fx:factory="observableArrayList"> 
-            			<String fx:value = "Diesel"/>
-            			<String fx:value = "Petrol"/> 
-            			<String fx:value = "Electric"/> 
-            			<String fx:value = "Hybrid"/> 
+            			<String fx:value="Diesel" />
+            			<String fx:value="Petrol" /> 
+            			<String fx:value="Electric" /> 
+            			<String fx:value="Hybrid" /> 
             			
             		</FXCollections>
             	</items> 
@@ -48,7 +47,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Type of tires included in the pakage :">
+            <Label fx:id="typeOfTires" text="Type of tires included in the pakage :">
                <font>
                   <Font size="19.0" />
                </font>
@@ -82,7 +81,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Transmission Type: ">
+            <Label fx:id="transmissionType" text="Transmission Type: ">
                <font>
                   <Font size="19.0" />
                </font>
@@ -106,7 +105,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Horsepower :">
+            <Label fx:id="horsePower" text="Horsepower :">
                <font>
                   <Font size="19.0" />
                </font>
@@ -126,6 +125,6 @@
             </Label>
          </children>
       </HBox>
-      <Button mnemonicParsing="false" text="Proceed To Appearance" />
+      <Button mnemonicParsing="false" onAction="#proceedToAppearance" text="Proceed To Appearance" />
    </children>
 </VBox>
