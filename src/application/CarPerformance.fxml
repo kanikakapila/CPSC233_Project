@@ -6,7 +6,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.VBox?>  
+<?import javafx.collections.FXCollections?>
+
 
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
@@ -28,15 +30,19 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="1819.0">
          <children>
-            <Label text="Method of Fuel">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
+            <Label text="Method of Fuel"/> 
+            
             <ChoiceBox fx:id="FXCollections" prefHeight="39.0" prefWidth="158.0">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
+            	<items>
+            		<FXCollections fx:factory="observableArrayList"> 
+            			<String fx:value = "Diesel"/>
+            			<String fx:value = "Petrol"/> 
+            			<String fx:value = "Electric"/> 
+            			<String fx:value = "Hybrid"/> 
+            			
+            		</FXCollections>
+            	</items> 
+           
             </ChoiceBox>
          </children>
       </HBox>

@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("C:\\Users\\abrar.safwan\\git\\CPSC233_Project\\src\\application\\CarPerformance.fxml"));
+			VBox root = loader.load(new FileInputStream("C:\\Users\\kanika.kapila1\\git\\CPSC233_Project\\src\\application\\CarPerformance.fxml"));
 			Scene scene = new Scene(root,850,400);
 			// Removed
 			primaryStage.setTitle("Your Dream Car");
