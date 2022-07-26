@@ -40,7 +40,10 @@
             			<String fx:value="Hybrid" /> 
             			
             		</FXCollections>
-            	</items> 
+            	</items>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin> 
            
             </ChoiceBox>
          </children>
@@ -54,30 +57,33 @@
             </Label>
             <CheckBox mnemonicParsing="false" text="Summer Tires">
                <HBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </CheckBox>
             <CheckBox mnemonicParsing="false" text="Winter Tires">
                <HBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </CheckBox>
             <CheckBox mnemonicParsing="false" text="Off-Road">
                <HBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </CheckBox>
             <CheckBox mnemonicParsing="false" text="Performance Tire">
                <HBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </CheckBox>
             <CheckBox mnemonicParsing="false" text="All-Season Tires (Regular)">
                <HBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </CheckBox>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>

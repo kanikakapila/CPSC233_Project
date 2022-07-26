@@ -20,7 +20,7 @@ public class Main extends Application {
 			controller.applicationStage = primaryStage;
 			
 			
-			Scene scene = new Scene(root,850,400);
+			Scene scene = new Scene(root,900,400);
 			// Removed
 			primaryStage.setTitle("Your Dream Car");
 			primaryStage.setScene(scene);
