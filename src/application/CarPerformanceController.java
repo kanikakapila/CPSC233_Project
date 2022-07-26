@@ -32,7 +32,7 @@ public class CarPerformanceController {
 
 	public Stage applicationStage;
 
-    @FXML
+    @FXML 
     void proceedToAppearance(ActionEvent event) {   
     	HBox ColourofCarContainer = new HBox(); 
     	Label ColourofCarLabel = new Label("Colour of Car");

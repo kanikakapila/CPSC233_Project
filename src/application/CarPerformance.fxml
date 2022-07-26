@@ -16,7 +16,7 @@
          <font>
             <Font size="19.0" />
          </font>
-      </Label>
+      </Label> 
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label fx:id="yourEngineSize" prefHeight="45.0" prefWidth="225.0" text="Your Engine Size (in Cubic Centimeters): " />
