@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class CarPerformanceController {
@@ -34,11 +35,12 @@ public class CarPerformanceController {
 
     @FXML 
     void proceedToAppearance(ActionEvent event) {   
-    	HBox ColourofCarContainer = new HBox(); 
+    	VBox ColourofCarContainer = new VBox(); 
     	Label ColourofCarLabel = new Label("Colour of Car");
     	TextField ColourofCarTextfield = new TextField();  
     	Label TypeofCarLabel = new Label("Type of Car");
     	TextField TypeofCarTextfield = new TextField();
+    	
     	
     	
     	
@@ -49,7 +51,8 @@ public class CarPerformanceController {
     	
     	
     	
-    	Scene proceedToApplicationScene = new Scene(ColourofCarContainer);  
+    	Scene proceedToApplicationScene = new Scene(ColourofCarContainer,900,400);
+    	
     	//backButton.setOnAction(backEvent -> primaryStage(Performance)); 
     	applicationStage .setScene(proceedToApplicationScene);
     	//System.out.println("Button pressed");
