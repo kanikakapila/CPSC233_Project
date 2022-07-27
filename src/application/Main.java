@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			FXMLLoader loader = new FXMLLoader(); 
 			VBox root = loader.load(new FileInputStream("src\\application\\CarPerformance.fxml"));
 			//CarPerformanceController controller = (CarPerformanceController)loader.getController();
 			//controller.applicationStage = primaryStage;
