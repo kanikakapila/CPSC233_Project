@@ -1,10 +1,6 @@
 package application;
 
-          
-
 import java.io.FileInputStream;
-
- 
 
 import javafx.application.Application;
 
@@ -16,57 +12,45 @@ import javafx.scene.Scene;
 
 import javafx.scene.layout.VBox;
 
- 
-
- 
-
- 
-
 public class Main extends Application {
 
-           @Override
+	@Override
 
-           public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) {
 
-                      try {
+		try {
 
-                                 FXMLLoader loader = new FXMLLoader();
+			FXMLLoader loader = new FXMLLoader();
 
-                                 VBox root = loader.load(new FileInputStream("src\\application\\CarPerformance.fxml"));
+			VBox root = loader.load(new FileInputStream("src\\application\\CarPerformance.fxml"));
 
-                                 //CarPerformanceController controller = (CarPerformanceController)loader.getController();
+			// CarPerformanceController controller =
+			// (CarPerformanceController)loader.getController();
 
-                                 //controller.applicationStage = primaryStage;
+			// controller.applicationStage = primaryStage;
 
-                                
+			Scene scene = new Scene(root, 900, 400);
 
-                                
+			// Removed
 
-                                 Scene scene = new Scene(root,900,400);
+			primaryStage.setTitle("Your Dream Car");
 
-                                 // Removed
+			primaryStage.setScene(scene);
 
-                                 primaryStage.setTitle("Your Dream Car");
+			primaryStage.show();
 
-                                 primaryStage.setScene(scene);
+		} catch (Exception e) {
 
-                                 primaryStage.show();
+			e.printStackTrace();
 
-                      } catch(Exception e) {
+		}
 
-                                 e.printStackTrace();
+	}
 
-                      }
+	public static void main(String[] args) {
 
-           }
+		launch(args);
 
-          
-
-           public static void main(String[] args) {
-
-                      launch(args);
-
-           }
+	}
 
 }
-
