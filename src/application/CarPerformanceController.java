@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class CarPerformanceController {
 
     @FXML
-    private Label typeOfTires;
+    private Label typeOfTires; 
 
     @FXML
     private Label horsePower;
