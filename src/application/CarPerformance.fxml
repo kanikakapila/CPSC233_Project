@@ -17,7 +17,7 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="yourEngineSize" prefHeight="45.0" prefWidth="225.0" text="Your Engine Size (in Cubic Centimeters): " />
+                              <Label fx:id="yourEngineSize" prefHeight="45.0" prefWidth="341.0" text="Your Engine Size (in Cubic Centimeters): " />
                               <Slider majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="569.0" showTickLabels="true" showTickMarks="true" />
                               <Label text="CC">
                                  <HBox.margin>
@@ -46,7 +46,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="typeOfTires" text="Type of tires included in the pakage :">
+                              <Label fx:id="typeOfTires" text="Type of tires included in the package :">
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>
@@ -117,7 +117,59 @@
                   </VBox>
                </content>
           </Tab>
-          <Tab text="Appearance" />
+          <Tab text="Appearance">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="105.0" text="     Colour " />
+                              <ColorPicker prefHeight="39.0" prefWidth="121.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="     Car Type " />
+                              <TextField prefHeight="19.0" prefWidth="230.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="   Number of Seats  " />
+                              <Slider majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="1" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="  Additional Lights " />
+                              <ChoiceBox prefHeight="33.0" prefWidth="157.0">  
+                              <items>
+                              <FXCollections fx:factory="observableArrayList"> 
+                              	<String fx:value="Head Lights" />
+                              	<String fx:value="Tail Lights" /> 
+                              	<String fx:value="Fog Lights" /> 
+                              	<String fx:value="Signal Lights" /> 
+                              	<String fx:value="Hazard Lights" />  
+                              	<String fx:value="Driving Lamps" />
+                              	<String fx:value="Daytime Running Lights" />
+                              	
+                              </FXCollections>
+                              </items>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="  Safety Features " />
+                              <CheckBox mnemonicParsing="false" text="Air-Bags  " />
+                              <CheckBox mnemonicParsing="false" text="Anti-Lock Brakes   " />
+                              <CheckBox mnemonicParsing="false" text="Smart Suspension   " />
+                              <CheckBox mnemonicParsing="false" text="Electronic Stability Control" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content></Tab>
             <Tab text="Payment Method" />
             <Tab text="Untitled Tab" />
         </tabs>
