@@ -129,8 +129,9 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="     Car Type " />
-                              <TextField prefHeight="19.0" prefWidth="230.0" />
+                              <Label text="     Car Type " /> 
+                              <ChoiceBox prefHeight="19.0" prefWidth="230.0"/>  
+                             
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
