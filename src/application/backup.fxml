@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CarPerformanceController">
+   <children>
+      <Label text="Performance Screen">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label> 
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="yourEngineSize" prefHeight="45.0" prefWidth="225.0" text="Your Engine Size (in Cubic Centimeters): " />
+            <Slider majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="569.0" showTickLabels="true" showTickMarks="true" />
+            <Label text="CC">
+               <HBox.margin>
+                  <Insets right="5.0" top="15.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="1819.0">
+         <children>
+            <Label fx:id="methodOfFuel" text="Method of Fuel" /> 
+            
+            <ChoiceBox fx:id="FXCollections" prefHeight="12.0" prefWidth="158.0">
+            	<items>
+            		<FXCollections fx:factory="observableArrayList"> 
+            			<String fx:value="Diesel" />
+            			<String fx:value="Petrol" /> 
+            			<String fx:value="Electric" /> 
+            			<String fx:value="Hybrid" /> 
+            			
+            		</FXCollections>
+            	</items>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin> 
+           
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="typeOfTires" text="Type of tires included in the pakage :">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+            <CheckBox mnemonicParsing="false" text="Summer Tires">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Winter Tires">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Off-Road">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Performance Tire">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="All-Season Tires (Regular)">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="transmissionType" text="Transmission Type: " />
+            <ToggleButton mnemonicParsing="false" text="Automatic">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" text="Manual">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" text="Dual Transmission">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="horsePower" text="Horsepower :" />
+            <TextField prefHeight="24.0" prefWidth="224.0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="HP">
+               <HBox.margin>
+                  <Insets bottom="14.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#proceedToAppearance" text="Proceed To Appearance" />
+   </children>
+</VBox>
