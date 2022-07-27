@@ -15,7 +15,7 @@
          </font>
       </Label>
       <Label text="Choose your Payment Method:" />
-      <HBox prefHeight="420.0" prefWidth="1163.0">
+      <HBox prefHeight="420.0" prefWidth="1163.0"> 
          <children>
             <MenuButton mnemonicParsing="false" text="Full Payment">
               <items>
