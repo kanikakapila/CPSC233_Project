@@ -1,6 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ColorPicker;
@@ -79,4 +80,13 @@ public class CarDataController {
 
     @FXML
     private CheckBox performanceTires;
+    
+    @FXML
+    private Button quarterDown;
+    
+    @FXML
+    private Button halfDown;
+    
+    @FXML
+    private Button halfPayment;
 }
