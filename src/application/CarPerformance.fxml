@@ -30,7 +30,7 @@
                         <HBox prefHeight="100.0" prefWidth="1819.0">
                            <children>
                               <Label fx:id="methodOfFuel" text="Method of Fuel" />
-                              <ChoiceBox fx:id="FXCollections" prefHeight="12.0" prefWidth="158.0">
+                              <ChoiceBox fx:id="fuelType" prefHeight="12.0" prefWidth="158.0">
                                  <items>
                                     <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="Diesel" />
