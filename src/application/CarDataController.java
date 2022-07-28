@@ -108,7 +108,18 @@ public class CarDataController {
     	double transmissionCost=0;
     	//HorsePower
     	double hPCost=0;
-    	double hpMultiplier=12.27;
+    	double hpMultiplier=12.27; 
+    	//car type and color
+    	double carTypeCost = 0; 
+    	double colourCost = 150;   
+    	//number of seats   
+    	double seatCost = 0;
+    	double numberOfSeats = 138.43;  
+    	//additional lights
+    	double lightCost = 0; 
+    	//safety features
+    	double safetyFeaturesCost = 0;
+    	
     	
     	
     	// Engine Cost Calculator
@@ -162,6 +173,87 @@ public class CarDataController {
     	// HorsePower
     	double horse= Double.parseDouble(horsepower.getText());
     	hPCost=horse*hpMultiplier;
+
+    	//Car Type 
+    	String carTypeChosen= (String) carType.getValue(); 
+    	if(carTypeChosen =="SUV") { 
+    		carTypeCost += 3000;
+    		 
+    	} 
+    	else if(carTypeChosen == "Sedan") { 
+    		carTypeCost += 2500;
+    		
+    	} 
+    	else if(carTypeChosen == "Van") { 
+    		carTypeCost += 3300;
+    		
+    	} 
+    	else if(carTypeChosen == "Hatchback") { 
+    		carTypeCost += 1700;
+    		
+    	} 
+    	else if(carTypeChosen == "Limousine") { 
+    		carTypeCost += 4000 ;
+    		
+    	} 
+    	else if(carTypeChosen == "Truck") { 
+    		carTypeCost += 4500;
+    		
+    	} 
+    	else { 
+    		carTypeCost += 5000 ;
+    		
+    	} 
+    	//number of seats 
+    	seatCost = seatSlider.getValue()*numberOfSeats; 
+    	
+    	//Light Cost 
+    	String lights= (String) addLights.getValue(); 
+    	if(lights =="Head Lights") { 
+    		lightCost += 200;
+    		 
+    	} 
+    	else if(lights == "Tail Lights") { 
+    		lightCost += 438;
+    		
+    	} 
+    	else if(lights == "Signal Lights") { 
+    		lightCost += 150;
+    		
+    	} 
+    	else if(lights == "Hazard Lights") { 
+    		lightCost += 60;
+    		
+    	} 
+    	else if(carTypeChosen == "Fog Lights") { 
+    		lightCost += 150 ;
+    		
+    	} 
+    	else if(carTypeChosen == "Daytime Running Lights") { 
+    		lightCost += 50;
+    		
+    	}  
+    	
+    	else { 
+    		lightCost +=  80;
+    		
+    	} 
+    	
+    	//Safety features
+    	if(airBags.isSelected()) { 
+    		safetyFeaturesCost += 6000;
+    		
+    	} 
+    	if(antiLBrakes.isSelected()) { 
+    		safetyFeaturesCost +=550 ;
+    		
+    	}
+    	if(smartSus.isSelected()) {
+    		safetyFeaturesCost += 1800 ;
+    	}
+    	if(electronicStab.isSelected()) {
+    		safetyFeaturesCost += 100;
+    	}
     	
     	
     	
@@ -171,7 +263,21 @@ public class CarDataController {
     	
     	
     	
-    	costOfCar= engineCost + fuelCost + tireCost + transmissionCost + hPCost;
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
+    	//appearance 
+    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
+    	costOfCar = performanceCost + appearanceCost ;
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
@@ -179,8 +285,16 @@ public class CarDataController {
     	System.out.println("TC:" + tireCost);
     	System.out.println("TransCost:" + transmissionCost);
     	System.out.println("HorseCost:" + hPCost);
-    	System.out.println("full");
+    	System.out.println("full"); 
+    	System.out.println("Car Type Cost" + carTypeCost); 
+    	System.out.println("Number of seats cost"+seatCost); 
+    	System.out.println("Light Cost:" + lightCost); 
+    	System.out.println("Safety Cost:" + safetyFeaturesCost);
+    	
+    	
     	System.out.println("Car Cost:" + costOfCar);
+    	
+    	
     	
     	
     	
