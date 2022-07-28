@@ -98,12 +98,17 @@ public class CarDataController {
     	//Keeps Track of the Price
     	double costOfCar=0;
     	// Engine Multiplier
-    	double eCost=1.58;
+    	double eCost=1.08;
     	double engineCost=0;
     	//Fuel
     	double fuelCost=0;
     	//Tire
     	double tireCost=0;
+    	//TransmissionType
+    	double transmissionCost=0;
+    	//HorsePower
+    	double hPCost=0;
+    	double hpMultiplier=12.27;
     	
     	
     	// Engine Cost Calculator
@@ -126,6 +131,37 @@ public class CarDataController {
     	}
     	
     	// Tires
+    	 if (summerTires.isSelected()) {
+    		 tireCost+=280.22;
+    	 }
+    	if (winterTires.isSelected()){
+    		tireCost+=290.84;
+    	}
+    	if (offTires.isSelected()){
+    		tireCost+=350.36;
+    	}
+    	if (performanceTires.isSelected()){
+    		tireCost+=425.22;
+    	}
+    		
+    	if (allTires.isSelected()) {
+    		tireCost+=240.74;
+    	}
+    	//Transmisiion
+    	
+    	if (autoTrans.isSelected()) {
+    		transmissionCost+=2433;
+    	}
+    	else if(manualTrans.isSelected()) {
+    		transmissionCost+=1560.64;
+    	}
+    	else if (dualTrans.isSelected()) {
+    		transmissionCost+=3000.21;
+    	}
+    	
+    	// HorsePower
+    	double horse= Double.parseDouble(horsepower.getText());
+    	hPCost=horse*hpMultiplier;
     	
     	
     	
@@ -134,12 +170,15 @@ public class CarDataController {
     	
     	
     	
-    	costOfCar= engineCost + fuelCost;
+    	
+    	costOfCar= engineCost + fuelCost + tireCost + transmissionCost + hPCost;
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
     	System.out.println("FC:" + fuelCost);
- 
+    	System.out.println("TC:" + tireCost);
+    	System.out.println("TransCost:" + transmissionCost);
+    	System.out.println("HorseCost:" + hPCost);
     	System.out.println("full");
     	System.out.println("Car Cost:" + costOfCar);
     	
