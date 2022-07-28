@@ -134,13 +134,13 @@
                               <ChoiceBox fx:id="carType" prefWidth="150.0">
                               <items>
                               <FXCollections fx:factory="observableArrayList"> 
-                              	<String fx:value="Head Lights" />
-                              	<String fx:value="Tail Lights" /> 
-                              	<String fx:value="Fog Lights" /> 
-                              	<String fx:value="Signal Lights" /> 
-                              	<String fx:value="Hazard Lights" />  
-                              	<String fx:value="Driving Lamps" />
-                              	<String fx:value="Daytime Running Lights" />
+                              	<String fx:value="SUV"/>
+                              	<String fx:value="Sedan" /> 
+                              	<String fx:value="Hatchback" /> 
+                              	<String fx:value="Truck" /> 
+                              	<String fx:value="Sports Car" />  
+                              	<String fx:value="Van" />
+                              	<String fx:value="Limousine" />
                               	
                               </FXCollections>
                               </items>
