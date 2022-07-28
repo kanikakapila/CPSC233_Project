@@ -1,5 +1,6 @@
 package application;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -88,5 +89,43 @@ public class CarDataController {
     private Button halfDown;
     
     @FXML
-    private Button fullPayment;
+    private Button fullPayment; 
+    
+    @FXML 
+    void fullPaymentCost(ActionEvent event) {
+    	//Keeps Track of the Price
+    	double costOfCar=0;
+    	System.out.println("full");
+    	
+    	
+    	
+    }
+    @FXML
+    void halfDownCost(ActionEvent event) {
+    	//Keeps Track of the Price
+    	double costOfCar=0; 
+    	System.out.println("half");
+    	
+    	
+    	
+    	
+    }
+    @FXML
+    void quarterDownCost(ActionEvent event) {
+    	//Keeps Track of the Price
+    	double costOfCar=0;
+    	System.out.println("quarter");
+    	
+    	
+    	
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
