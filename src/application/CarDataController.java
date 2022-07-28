@@ -37,7 +37,7 @@ public class CarDataController {
     private ColorPicker color;
 
     @FXML
-    private CheckBox allTires;
+    private CheckBox allTires; 
 
     @FXML
     private ChoiceBox<?> addLights;
@@ -58,7 +58,7 @@ public class CarDataController {
     private ToggleButton autoTrans;
 
     @FXML
-    private TextField carType;
+    private ChoiceBox<?> carType;
 
     @FXML
     private CheckBox antiLBrakes;
@@ -88,5 +88,5 @@ public class CarDataController {
     private Button halfDown;
     
     @FXML
-    private Button halfPayment;
+    private Button fullPayment;
 }
