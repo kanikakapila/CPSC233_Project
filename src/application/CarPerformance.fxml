@@ -5,7 +5,7 @@
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?> 
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="840.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CarDataController">
@@ -199,13 +199,13 @@
                         </HBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="fullPayment" mnemonicParsing="false" prefHeight="39.0" prefWidth="1052.0" text="Full Payment" />
-                              <Button fx:id="halfDown" mnemonicParsing="false" prefHeight="39.0" prefWidth="1053.0" text="50% Down-Payment + 12Months Finance">
+                              <Button fx:id="fullPayment" mnemonicParsing="false" onAction="#fullPaymentCost" prefHeight="39.0" prefWidth="1052.0" text="Full Payment" />
+                              <Button fx:id="halfDown" mnemonicParsing="false" onAction="#halfDownCost" prefHeight="39.0" prefWidth="1053.0" text="50% Down-Payment + 12Months Finance">
                                  <VBox.margin>
                                     <Insets top="12.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="quarterDown" mnemonicParsing="false" prefHeight="39.0" prefWidth="1053.0" text="25% Down-Payment + 24Months Finance">
+                              <Button fx:id="quarterDown" mnemonicParsing="false" onAction="#quarterDownCost" prefHeight="39.0" prefWidth="1053.0" text="25% Down-Payment + 24Months Finance">
                                  <VBox.margin>
                                     <Insets top="12.0" />
                                  </VBox.margin>
