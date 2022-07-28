@@ -131,13 +131,26 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="     Car Type " />
-                              <TextField fx:id="carType" prefHeight="19.0" prefWidth="230.0" />
+                              <ChoiceBox fx:id="carType" prefWidth="150.0">
+                              <items>
+                              <FXCollections fx:factory="observableArrayList"> 
+                              	<String fx:value="Head Lights" />
+                              	<String fx:value="Tail Lights" /> 
+                              	<String fx:value="Fog Lights" /> 
+                              	<String fx:value="Signal Lights" /> 
+                              	<String fx:value="Hazard Lights" />  
+                              	<String fx:value="Driving Lamps" />
+                              	<String fx:value="Daytime Running Lights" />
+                              	
+                              </FXCollections>
+                              </items>
+                              </ChoiceBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="   Number of Seats  " />
-                              <Slider fx:id="seatSlider" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="1" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" />
+                              <Slider fx:id="seatSlider" majorTickUnit="2.0" max="8.0" min="2.0" minorTickCount="2" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
