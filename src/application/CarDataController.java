@@ -37,7 +37,7 @@ public class CarDataController {
     private ColorPicker color;
 
     @FXML
-    private CheckBox allTires;
+    private CheckBox allTires; 
 
     @FXML
     private ChoiceBox<?> addLights;
