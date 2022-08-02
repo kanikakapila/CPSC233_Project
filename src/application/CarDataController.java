@@ -13,7 +13,7 @@ import javafx.scene.control.ToggleButton;
 
 public class CarDataController {
 
-    @FXML
+    @FXML 
     private ToggleButton manualTrans;
 
     @FXML
