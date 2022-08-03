@@ -221,7 +221,10 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Description of car" />
+                              <Label prefHeight="40.0" prefWidth="918.0" text="Description of car" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -245,7 +248,10 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Monthly cost of the car" />
+                              <Label text="Monthly cost of the car">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
