@@ -7,7 +7,7 @@ public class Car {
 	int engineSize;
 	String methodOfFuel;
 	ArrayList<String> tires;
-	String transmissionType;
+	String transmissionType;  
 	double horsepower;
 	// Instance for Appearance
 	String color;
