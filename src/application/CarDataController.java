@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -99,6 +101,18 @@ public class CarDataController {
     @FXML
     private Label CostLabel;
     
+    @FXML
+    private Label description;
+    
+    @FXML
+    private Label monthlyLabel;
+    
+    @FXML
+    private Label ESize;
+    
+    
+ 
+    
     
     @FXML 
     void fullPaymentCost(ActionEvent event) {
@@ -130,11 +144,24 @@ public class CarDataController {
     	
     	
     	// Engine Cost Calculator
-    	engineCost+= (engineSlider.getValue())*eCost;
+    	
+    	while(engineSlider.getValue()>=1000) {
+    		if (engineSlider.getValue()<2500) {
+    			engineCost+= (engineSlider.getValue())*eCost;
+    			break;
+    		}
+    		else {
+    			engineCost+= (engineSlider.getValue())*(eCost+1);
+    			break;
+    		}
+    		}
+    	
     	
     	// Fuel Type
     	
+    	
     	String fuel= (String) fuelType.getValue();
+    	
     	if (fuel=="Electric") {
     		fuelCost+=2500.63;
     	}
@@ -146,7 +173,7 @@ public class CarDataController {
     	}
     	else {
     		fuelCost+=1350.92;
-    	}
+   	}
     	
     	// Tires
     	 if (summerTires.isSelected()) {
@@ -281,13 +308,54 @@ public class CarDataController {
 //    	
 //    	
 //    	System.out.println("Car Cost:" + costOfCar);
-//    	
+    	// Description    	
     	
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costOfCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
+    	double monthlyCost=0;
+    	//Monthly Cost
+    	if (costOfCar<=15000){
+    		//Fuel
+    		monthlyCost+=125;
+    		//Insurance
+    		monthlyCost+=114;
+    		//Maintenance
+    		monthlyCost+=40;
+    	}
+    	else if ((costOfCar>15000) &&(costOfCar<=25000)){
+    		//Fuel
+    		monthlyCost+=135;
+    		//Insurance
+    		monthlyCost+=124;
+    		//Maintenance
+    		monthlyCost+=50;
+    		
+    	}
+    	else if ((costOfCar>25000) &&(costOfCar<40000)){
+    		//Fuel
+    		monthlyCost+=145;
+    		//Insurance
+    		monthlyCost+=144;
+    		//Maintenance
+    		monthlyCost+=60;
+    	}
+    	else {
+    		//Fuel
+    		monthlyCost+=155;
+    		//Insurance
+    		monthlyCost+=160;
+    		//Maintenance
+    		monthlyCost+=70;
+    		
+    	}	
+    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
     	
     	
-    }
+    	}
+    	
+    	
+    	
+    
     @FXML
     void halfDownCost(ActionEvent event) {
     	//Keeps Track of the Price
@@ -468,6 +536,45 @@ public class CarDataController {
     	System.out.println("half");
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 12 months : %.2f", half,total ));
+    	
+    	double monthlyCost=0;
+    	//Monthly Cost
+    	if (costOfCar<=15000){
+    		//Fuel
+    		monthlyCost+=125;
+    		//Insurance
+    		monthlyCost+=114;
+    		//Maintenance
+    		monthlyCost+=40;
+    	}
+    	else if ((costOfCar>15000) &&(costOfCar<=25000)){
+    		//Fuel
+    		monthlyCost+=135;
+    		//Insurance
+    		monthlyCost+=124;
+    		//Maintenance
+    		monthlyCost+=50;
+    		
+    	}
+    	else if ((costOfCar>25000) &&(costOfCar<40000)){
+    		//Fuel
+    		monthlyCost+=145;
+    		//Insurance
+    		monthlyCost+=144;
+    		//Maintenance
+    		monthlyCost+=60;
+    	}
+    	else {
+    		//Fuel
+    		monthlyCost+=155;
+    		//Insurance
+    		monthlyCost+=160;
+    		//Maintenance
+    		monthlyCost+=70;
+    		
+    	}	
+    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
+    	
     	
     	
     	
@@ -653,6 +760,46 @@ public class CarDataController {
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 24 months : %.2f", half,total ));    	
     	System.out.println("quarter");
+    	
+    	
+    	double monthlyCost=0;
+    	//Monthly Cost
+    	if (costOfCar<=15000){
+    		//Fuel
+    		monthlyCost+=125;
+    		//Insurance
+    		monthlyCost+=114;
+    		//Maintenance
+    		monthlyCost+=40;
+    	}
+    	else if ((costOfCar>15000) &&(costOfCar<=25000)){
+    		//Fuel
+    		monthlyCost+=135;
+    		//Insurance
+    		monthlyCost+=124;
+    		//Maintenance
+    		monthlyCost+=50;
+    		
+    	}
+    	else if ((costOfCar>25000) &&(costOfCar<40000)){
+    		//Fuel
+    		monthlyCost+=145;
+    		//Insurance
+    		monthlyCost+=144;
+    		//Maintenance
+    		monthlyCost+=60;
+    	}
+    	else {
+    		//Fuel
+    		monthlyCost+=155;
+    		//Insurance
+    		monthlyCost+=160;
+    		//Maintenance
+    		monthlyCost+=70;
+    		
+    	}	
+    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
+    	
     	
     	
     	
