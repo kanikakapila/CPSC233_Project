@@ -215,7 +215,42 @@
                      </children>
                   </VBox>
                </content></Tab>
-            <Tab text="Untitled Tab" />
+            <Tab text="Untitled Tab">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Description of car" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="1375.0">
+                                 <children>
+                                     <Label prefHeight="21.0" prefWidth="1411.0" text="Total cost of the car">
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="CostLabel" prefHeight="21.0" prefWidth="1346.0" text="Choose a payment method" />
+                                    <Label fx:id="totalCostLabel" text="Please select a payment method first in the previous tab pane">
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Monthly cost of the car" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content></Tab>
         </tabs>
       </TabPane>
    </children>
