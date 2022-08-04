@@ -290,10 +290,9 @@ public class CarDataController {
     		safetyFeaturesCost += 100;
     	}
     	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
+    	 PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
+    	
+    	costOfCar = performanceCost.getPerformanceCost() ;
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
