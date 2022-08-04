@@ -150,7 +150,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="Number of Seats  " />
-                              <Slider fx:id="seatSlider" majorTickUnit="2.0" max="8.0" min="2.0" minorTickCount="2" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" />
+                              <Slider fx:id="seatSlider" majorTickUnit="2.0" max="8.0" min="2.0" minorTickCount="0" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
