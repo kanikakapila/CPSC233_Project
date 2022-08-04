@@ -239,7 +239,8 @@ public class CarDataController {
     		
     	} 
     	//number of seats 
-    	seatCost = seatSlider.getValue()*numberOfSeats; 
+    	seatCost = seatSlider.getValue()*numberOfSeats;
+    	int numOS=(int) seatSlider.getValue();
     	
     	//Light Cost 
     	String lights= (String) addLights.getValue(); 
@@ -294,18 +295,19 @@ public class CarDataController {
     	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
     	costOfCar = performanceCost + appearanceCost ;
     	
-//    	//Debugging 
-//    	System.out.println("EC:" + engineCost);
-//    	System.out.println("FC:" + fuelCost);
-//    	System.out.println("TC:" + tireCost);
-//    	System.out.println("TransCost:" + transmissionCost);
-//    	System.out.println("HorseCost:" + hPCost);
-//    	System.out.println("full"); 
-//    	System.out.println("Car Type Cost" + carTypeCost); 
-//    	System.out.println("Number of seats cost"+seatCost); 
-//    	System.out.println("Light Cost:" + lightCost); 
-//    	System.out.println("Safety Cost:" + safetyFeaturesCost);
-//    	
+    	//Debugging 
+    	System.out.println("EC:" + engineCost);
+    	System.out.println("FC:" + fuelCost);
+    	System.out.println("TC:" + tireCost);
+    	System.out.println("TransCost:" + transmissionCost);
+    	System.out.println("HorseCost:" + hPCost);
+    	System.out.println("full"); 
+    	System.out.println("Car Type Cost" + carTypeCost); 
+    	System.out.println("Number of seats cost"+seatCost); 
+    	System.out.println("Light Cost:" + lightCost); 
+    	System.out.println("Safety Cost:" + safetyFeaturesCost);
+    	System.out.println("Seats:"+ numOS);
+    	
 //    	
 //    	System.out.println("Car Cost:" + costOfCar);
     	// Description    	
