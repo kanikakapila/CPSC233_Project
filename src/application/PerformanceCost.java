@@ -19,14 +19,14 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 		horsepower = horseCost;
 		transmissionTypeCost = costOfTransmission; 
 		}
-	 
+
+	
 
 	double getPerformanceCost() {
 		return engineSizeCost + tiresCost + fuelCost + horsepower + transmissionTypeCost;
 	}
-
-
-
+	
+	
 
 
 }
