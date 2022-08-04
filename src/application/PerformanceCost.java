@@ -1,5 +1,5 @@
 package application;
 
-public class PerformanceCost extends Car {
+public class PerformanceCost {
 
 }

@@ -292,8 +292,9 @@ public class CarDataController {
     	 	 	
     	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
     	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
+    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost,seatCost,lightCost,safetyFeaturesCost);
+    	
+    	costOfCar = performanceCost + appearanceCost.TotalAppearanceCost()  ;
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
