@@ -157,6 +157,7 @@ public class CarDataController {
     		}
     	
     	
+    	
     	// Fuel Type
     	
     	
@@ -292,8 +293,8 @@ public class CarDataController {
     	 	 	
 
     	 PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
-    	AppearanceCost appearanceCost = new AppearanceCost(colorCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
-    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost;
+    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
+    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost();
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
@@ -519,12 +520,11 @@ public class CarDataController {
     	}
     	if(electronicStab.isSelected()) {
     		safetyFeaturesCost += 100;
-    	}
-    	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
+    	} 
+    	
+    	PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
+    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
+    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost();
     	
     	double interest= (10.0/100)*costOfCar;
     	
@@ -745,11 +745,9 @@ public class CarDataController {
     		safetyFeaturesCost += 100;
     	}
     	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
-    	
+    	PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
+    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
+    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost();
     	double interest= (15.0/100)*costOfCar;
     	
     	
