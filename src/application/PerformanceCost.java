@@ -1,5 +1,6 @@
 package application;
 
+
 public class PerformanceCost { 
 	
 	double engineSizeCost;
@@ -23,6 +24,7 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 	double getPerformanceCost() {
 		return engineSizeCost + tiresCost + fuelCost + horsepower + transmissionTypeCost;
 	}
+
 
 
 

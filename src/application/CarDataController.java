@@ -290,6 +290,7 @@ public class CarDataController {
     		safetyFeaturesCost += 100;
     	}
     	 	 	
+
     	 PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
     	AppearanceCost appearanceCost = new AppearanceCost(colorCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
     	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost;
