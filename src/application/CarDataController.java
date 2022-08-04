@@ -290,11 +290,10 @@ public class CarDataController {
     		safetyFeaturesCost += 100;
     	}
     	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost,seatCost,lightCost,safetyFeaturesCost);
-    	
-    	costOfCar = performanceCost + appearanceCost.TotalAppearanceCost()  ;
+
+    	 PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
+    	AppearanceCost appearanceCost = new AppearanceCost(colorCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
+    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost;
     	
     	//Debugging 
     	System.out.println("EC:" + engineCost);
