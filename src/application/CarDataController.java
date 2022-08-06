@@ -110,6 +110,50 @@ public class CarDataController {
     @FXML
     private Label ESize;
     
+    public double getTireCost() {
+    	double tireCost=0;
+    	 if (summerTires.isSelected()) {
+    		 tireCost+=280.22;
+    	 }
+    	if (winterTires.isSelected()){
+    		tireCost+=290.84;
+    	}
+    	if (offTires.isSelected()){
+    		tireCost+=350.36;
+    	}
+    	if (performanceTires.isSelected()){
+    		tireCost+=425.22;
+    	}
+    		
+    	if (allTires.isSelected()) {
+    		tireCost+=240.74;
+    	}
+    	/// if no tires is selected  then default charge for all season tires;
+    	if (!summerTires.isSelected() && !winterTires.isSelected() && !offTires.isSelected() && !performanceTires.isSelected() && !allTires.isSelected()) {
+    		tireCost+=240.74;
+    		//Selects all season tires automatically
+    		allTires.setSelected(true);
+    	}
+		return tireCost;
+    }
+    
+    public double getTransmissionCost() {
+    	double transmissionCost=0;
+    	if (autoTrans.isSelected()) {
+    		transmissionCost+=2433;
+    	}
+    	else if(manualTrans.isSelected()) {
+    		transmissionCost+=1560.64;
+    	}
+    	else if (dualTrans.isSelected()) {
+    		transmissionCost+=3000.21;
+    	}
+    	else {
+    		transmissionCost=1560.64;
+    	}
+		return transmissionCost;
+    }
+    
  
     public double cost() { 
     	//Keeps Track of the Price
@@ -145,54 +189,22 @@ public class CarDataController {
     	PerformanceCost Fuel=new PerformanceCost(fuel);
     	fuelCost=Fuel.getFuelCost(fuel);
     	
-//    	// Fuel Type
-//    	String fuel= (String) fuelType.getValue();
-//    	
-//    	if (fuel=="Electric") {
-//    		fuelCost+=2500.63;
-//    	}
-//    	else if (fuel=="Petrol") {
-//    		fuelCost+=1400.75;
-//    	}
-//    	else if (fuel=="Hyrbid") {
-//    		fuelCost+=1600.25;
-//    	}
-//    	else {
-//    		fuelCost+=1350.92;
-//   	}
-//    	
     	// Tires
-    	 if (summerTires.isSelected()) {
-    		 tireCost+=280.22;
-    	 }
-    	if (winterTires.isSelected()){
-    		tireCost+=290.84;
-    	}
-    	if (offTires.isSelected()){
-    		tireCost+=350.36;
-    	}
-    	if (performanceTires.isSelected()){
-    		tireCost+=425.22;
-    	}
-    		
-    	if (allTires.isSelected()) {
-    		tireCost+=240.74;
-    	}
+    	tireCost=getTireCost();
+
     	//Transmisiion
+    	transmissionCost=getTransmissionCost();
     	
-    	if (autoTrans.isSelected()) {
-    		transmissionCost+=2433;
-    	}
-    	else if(manualTrans.isSelected()) {
-    		transmissionCost+=1560.64;
-    	}
-    	else if (dualTrans.isSelected()) {
-    		transmissionCost+=3000.21;
-    	}
-    	
+
     	// HorsePower
-    	double horse= Double.parseDouble(horsepower.getText());
-    	hPCost=horse*hpMultiplier;
+    	
+	double horse= Double.parseDouble(horsepower.getText());
+	
+    	PerformanceCost horseP=new PerformanceCost(horse,engineSlider.getValue());
+    	double engineChosen=engineSlider.getValue();
+    	
+    	
+    	hPCost=horseP.getHorsepowerCost(horse,engineChosen);
 
     	//Car Type 
     	String carTypeChosen= (String) carType.getValue(); 
@@ -288,6 +300,7 @@ public class CarDataController {
     void fullPaymentCost(ActionEvent event) {
     	double costofCar = cost();
     	
+    	// Output Screen
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costofCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
     	double monthlyCost=0;

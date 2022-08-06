@@ -19,7 +19,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="yourEngineSize" prefHeight="37.0" prefWidth="215.0" text="Your Engine Size (in Cubic Centimeters): " />
-                              <Slider fx:id="engineSlider" majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="525.0" showTickLabels="true" showTickMarks="true" />
+                              <Slider fx:id="engineSlider" majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="525.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                               <Label text="CC">
                                  <HBox.margin>
                                     <Insets right="5.0" top="15.0" />
@@ -102,7 +102,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="horsePower" text="Horsepower :" />
-                              <TextField fx:id="horsepower" prefHeight="24.0" prefWidth="224.0">
+                              <TextField fx:id="horsepower" prefHeight="24.0" prefWidth="224.0" text="0">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -110,6 +110,11 @@
                               <Label text="HP">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="horseErrorLabel" prefHeight="27.0" prefWidth="86.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
