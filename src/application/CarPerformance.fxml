@@ -12,7 +12,7 @@
    <children>
       <TabPane prefHeight="855.0" prefWidth="1240.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Performance">
+          <Tab fx:id="performanceTab" text="Performance">
                <content>
                   <VBox prefHeight="824.0" prefWidth="1124.0">
                      <children>
@@ -118,7 +118,7 @@
                   </VBox>
                </content>
           </Tab>
-          <Tab text="Appearance">
+          <Tab fx:id="appearanceTab" text="Appearance">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -215,7 +215,7 @@
                      </children>
                   </VBox>
                </content></Tab>
-            <Tab text="Receipt">
+            <Tab fx:id="outputTab" text="Receipt">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
