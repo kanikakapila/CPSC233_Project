@@ -1,6 +1,6 @@
 package application;
 
-import java.util.ArrayList;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -112,6 +112,13 @@ public class CarDataController {
     @FXML
     private Label ESize;
     
+    @FXML
+    private Label insuranceLabel;
+    
+    @FXML
+    private Label gasPriceLabel;
+   
+    
     public double getTireCost() {
     	double tireCost=0;
     	 if (summerTires.isSelected()) {
@@ -200,7 +207,8 @@ public class CarDataController {
 		return colorCost;
     	
     }
- 
+    
+   
     public double cost() { 
     	//Keeps Track of the Price
     	double costOfCar=0;
@@ -317,43 +325,31 @@ public class CarDataController {
     	// Output Screen
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costofCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
-    	double monthlyCost=0;
-    	//Monthly Cost
-    	if (costofCar<=15000){
-    		//Fuel
-    		monthlyCost+=125;
-    		//Insurance
-    		monthlyCost+=114;
-    		//Maintenance
-    		monthlyCost+=40;
+    	double insuranceCost=0;
+    	double gasPrice=0;
+    	
+    	
+    	//Insurance
+    	
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
     	}
-    	else if ((costofCar>15000) &&(costofCar<=25000)){
-    		//Fuel
-    		monthlyCost+=135;
-    		//Insurance
-    		monthlyCost+=124;
-    		//Maintenance
-    		monthlyCost+=50;
-    		
-    	}
-    	else if ((costofCar>25000) &&(costofCar<40000)){
-    		//Fuel
-    		monthlyCost+=145;
-    		//Insurance
-    		monthlyCost+=144;
-    		//Maintenance
-    		monthlyCost+=60;
-    	}
-    	else {
-    		//Fuel
-    		monthlyCost+=155;
-    		//Insurance
-    		monthlyCost+=160;
-    		//Maintenance
-    		monthlyCost+=70;
-    		
-    	}	
-    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
     	
     	
     	}
@@ -366,125 +362,100 @@ public class CarDataController {
 
 	@FXML
     void halfDownCost(ActionEvent event) {
-     double costOfCar = cost();
+     double costofCar = cost();
+    	double interest= (10.0/100)*costofCar;
     	
-    	double interest= (10.0/100)*costOfCar;
     	
+    	double half= (50.0/100)* costofCar;
     	
-    	double half= (50.0/100)* costOfCar;
-    	
-    	double monthly = costOfCar-half;
+    	double monthly = costofCar-half;
     	double total = (monthly+interest)/12;
     	
-    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", costOfCar+interest ));
+    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", costofCar+interest ));
     	System.out.println("half");
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 12 months : %.2f", half,total ));
     	
-    	double monthlyCost=0;
-    	//Monthly Cost
-    	if (costOfCar<=15000){
-    		//Fuel
-    		monthlyCost+=125;
-    		//Insurance
-    		monthlyCost+=114;
-    		//Maintenance
-    		monthlyCost+=40;
+    	double insuranceCost=0;
+    	double gasPrice=0;
+    	
+    	
+    	//Insurance
+    	
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
     	}
-    	else if ((costOfCar>15000) &&(costOfCar<=25000)){
-    		//Fuel
-    		monthlyCost+=135;
-    		//Insurance
-    		monthlyCost+=124;
-    		//Maintenance
-    		monthlyCost+=50;
-    		
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	
+    	
     	}
-    	else if ((costOfCar>25000) &&(costOfCar<40000)){
-    		//Fuel
-    		monthlyCost+=145;
-    		//Insurance
-    		monthlyCost+=144;
-    		//Maintenance
-    		monthlyCost+=60;
-    	}
-    	else {
-    		//Fuel
-    		monthlyCost+=155;
-    		//Insurance
-    		monthlyCost+=160;
-    		//Maintenance
-    		monthlyCost+=70;
-    		
-    	}	
-    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
     	
     	
+
     	
-    	
-    	
-    }
+    
     @FXML
     void quarterDownCost(ActionEvent event) {
-    	double costOfCar = cost();
+    	double costofCar = cost();
     	
     	
-    	double interest= (15.0/100)*costOfCar;
+    	double interest= (15.0/100)*costofCar;
     	
     	
-    	double half= (25.0/100)*costOfCar;
+    	double half= (25.0/100)*costofCar;
     	
-    	double monthly = costOfCar-half;
+    	double monthly = costofCar-half;
     	double total = (monthly+interest)/24;
     	
-    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", interest+costOfCar ));
+    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", interest+costofCar ));
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 24 months : %.2f", half,total ));    	
     	System.out.println("quarter");
     	
     	
-    	double monthlyCost=0;
-    	//Monthly Cost
-    	if (costOfCar<=15000){
-    		//Fuel
-    		monthlyCost+=125;
-    		//Insurance
-    		monthlyCost+=114;
-    		//Maintenance
-    		monthlyCost+=40;
+    	double insuranceCost=0;
+    	double gasPrice=0;
+    	
+    	
+    	//Insurance
+    	
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
     	}
-    	else if ((costOfCar>15000) &&(costOfCar<=25000)){
-    		//Fuel
-    		monthlyCost+=135;
-    		//Insurance
-    		monthlyCost+=124;
-    		//Maintenance
-    		monthlyCost+=50;
-    		
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	
+    	
     	}
-    	else if ((costOfCar>25000) &&(costOfCar<40000)){
-    		//Fuel
-    		monthlyCost+=145;
-    		//Insurance
-    		monthlyCost+=144;
-    		//Maintenance
-    		monthlyCost+=60;
-    	}
-    	else {
-    		//Fuel
-    		monthlyCost+=155;
-    		//Insurance
-    		monthlyCost+=160;
-    		//Maintenance
-    		monthlyCost+=70;
-    		
-    	}	
-    	monthlyLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", monthlyCost ));
-    	
-    	
-    	
-    	
-    }
     
     
     
