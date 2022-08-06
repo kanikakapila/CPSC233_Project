@@ -110,13 +110,11 @@ public class CarDataController {
     @FXML
     private Label ESize;
     
-    
  
     public double cost() { 
     	//Keeps Track of the Price
     	double costOfCar=0;
-    	// Engine Multiplier
-    	double eCost=1.08;
+    	//Engine
     	double engineCost=0;
     	//Fuel
     	double fuelCost=0;
@@ -137,35 +135,32 @@ public class CarDataController {
     	double lightCost = 0; 
     	//safety features
     	double safetyFeaturesCost = 0;
-    	// Engine Cost Calculator
-
-    	while(engineSlider.getValue()>=1000) {
-    		if (engineSlider.getValue()<2500) {
-    			engineCost+= (engineSlider.getValue())*eCost;
-    			break;
-    		}
-    		else {
-    			engineCost+= (engineSlider.getValue())*(eCost+1);
-    			break;
-    		}
-    		}  	
+ 
+    	// Engine
+    	PerformanceCost Engine= new PerformanceCost(engineSlider.getValue());
+    	engineCost= Engine.getEngineCost(engineSlider.getValue());
     	
-    	// Fuel Type
+    	// Fuel
     	String fuel= (String) fuelType.getValue();
+    	PerformanceCost Fuel=new PerformanceCost(fuel);
+    	fuelCost=Fuel.getFuelCost(fuel);
     	
-    	if (fuel=="Electric") {
-    		fuelCost+=2500.63;
-    	}
-    	else if (fuel=="Petrol") {
-    		fuelCost+=1400.75;
-    	}
-    	else if (fuel=="Hyrbid") {
-    		fuelCost+=1600.25;
-    	}
-    	else {
-    		fuelCost+=1350.92;
-   	}
-    	
+//    	// Fuel Type
+//    	String fuel= (String) fuelType.getValue();
+//    	
+//    	if (fuel=="Electric") {
+//    		fuelCost+=2500.63;
+//    	}
+//    	else if (fuel=="Petrol") {
+//    		fuelCost+=1400.75;
+//    	}
+//    	else if (fuel=="Hyrbid") {
+//    		fuelCost+=1600.25;
+//    	}
+//    	else {
+//    		fuelCost+=1350.92;
+//   	}
+//    	
     	// Tires
     	 if (summerTires.isSelected()) {
     		 tireCost+=280.22;
