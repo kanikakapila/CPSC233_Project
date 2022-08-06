@@ -262,6 +262,8 @@
                                        </font>
                                     </Label>
                                     <Label fx:id="monthlyLabel" text="Select a Payment Method to Update" />
+                                    <Label fx:id="insuranceLabel" text="Insurance Cost:" />
+                                    <Label fx:id="gasPriceLabel" text="Estimated Gas Cost: " />
                                  </children>
                               </VBox>
                            </children>
