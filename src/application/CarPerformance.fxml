@@ -112,13 +112,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="horseErrorLabel" prefHeight="27.0" prefWidth="86.0">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
                            </children>
                         </HBox>
+                        <VBox prefHeight="73.0" prefWidth="1240.0">
+                           <children>
+                              <Label fx:id="horseErrorLabel" prefHeight="27.0" prefWidth="1101.0" textFill="#e82020" />
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </content>
