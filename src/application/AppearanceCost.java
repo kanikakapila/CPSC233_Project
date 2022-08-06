@@ -33,7 +33,7 @@ AppearanceCost(double d){
 	double getCarTypeCost (String x) { 
 		carTypeCost = 0;
 		String [] carTypes = {"Sedan","SUV","Van","Hatchback","Limousine","Truck","Sports Car"}; 
-		int [] cost = {2500,3500,3300,1700,4000,4500,5000}; 
+		int [] cost = {2500,3500,3300,1800,4000,4500,5000}; 
 		int index = 0; 
 		
 		for(int i=0;i<carTypes.length;i++) { 
