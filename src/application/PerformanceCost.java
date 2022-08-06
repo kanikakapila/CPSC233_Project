@@ -13,6 +13,8 @@ PerformanceCost(double x){}
 
 PerformanceCost(String x){}
 
+PerformanceCost(double x, double y){}
+
 
 PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,  
 		double horseCost, double costOfTransmission ){
@@ -34,7 +36,7 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 		 engineSizeCost=0;
 		//For engine size 1000-3000
 		double ecost1 = 2.5;
-		// Froe enfine Size greater than 3000
+		// From engine Size greater than 3000
 		double ecost2=  1.75;
 		
 		if(x<=3000) {
@@ -60,14 +62,39 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 			index=i;
 		}
 		}
-		System.out.println(x);
+		
 		fuelCost=cost[index];
-		System.out.println("Fuel Cost"+ fuelCost);
 		
 		return fuelCost;
 		
 	}
 	
+	double getHorsepowerCost(double x,double y) {
+		double hpMultiplier=12.27;
+		double hpCost=0;
+		double chosenHorsepower=x;
+		double chosenEngine=y;
+		double maxHorsepower=500;
+		double maxEngine=5000;
+		
+		//if Horsepower is chosen
+		if (chosenHorsepower>99){
+		hpCost=chosenHorsepower*hpMultiplier;
+		}
+		// if Horsepower is not chosen or invalid input 
+		else {
+			chosenHorsepower=  chosenEngine*(maxHorsepower/maxEngine); 
+			hpCost=chosenHorsepower*hpMultiplier;
+			
+		}
+		System.out.println("Horse " +chosenHorsepower + "Cost " + hpCost );
+		return hpCost;
+		
+	}
 
-}
+	}
+	
+	
+
+
 	
