@@ -78,7 +78,7 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 		double maxEngine=5000;
 		
 		//if Horsepower is chosen
-		if (chosenHorsepower>99){
+		if (chosenHorsepower>99 && chosenHorsepower<=500){
 		hpCost=chosenHorsepower*hpMultiplier;
 		}
 		// if Horsepower is not chosen or invalid input 

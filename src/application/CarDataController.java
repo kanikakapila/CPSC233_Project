@@ -181,6 +181,25 @@ public class CarDataController {
 	}
 	return safetyFeaturesCost;
 	}
+    
+    public double getColourCost(double carTypeCost) {
+    	double colorCost=0;
+    	// "Sedan","SUV","Van","Hatchback" Cost
+    	double Cost1=450;
+    	// "Limousine","Truck","Sports Car" cost
+    	double Cost2=650;
+    	
+    	if(carTypeCost<=3500) {
+    		colorCost=Cost1;
+    	}
+    	else {
+    		colorCost=Cost2;
+    	}
+    	
+    	
+		return colorCost;
+    	
+    }
  
     public double cost() { 
     	//Keeps Track of the Price
@@ -198,7 +217,7 @@ public class CarDataController {
     	
     	//car type and color
     	double carTypeCost = 0; 
-    	double colourCost = 150;   
+    	double colourCost = 0;   
     	//number of seats   
     	double seatCost = 0;
     
@@ -224,18 +243,33 @@ public class CarDataController {
     	
 
     	// HorsePower
-    	String h = horsepower.getText(); 
+    	String h = horsepower.getText();
+    	//variable to display error
+    	String y =horsepower.getText();
+
     	boolean horsepowerCheck = true;
     	for(char c: h.toCharArray()) {
     		if(!Character.isDigit(c)) {
     			horsepowerCheck = false; 
-    			horseErrorLabel.setText("You cannot use" + c+ "as a horsepower. It should be some number between 100 and 500. Horsepower is set to Default Value.");
-    			h = "0";
+    			horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
+    			h="0";
+    			
+    			;
     		}
-    	}
-    	
+    	}    	
     	
     	double horse= Double.parseDouble(h); 
+    	// Horsepower cannot exceed 500
+    	if (horse>500 || horse<100) {
+    		horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
+    		horse=0;
+    	}
+    	else if(horse<=500 && horse>=100) {
+    		horseErrorLabel.setText("");
+    	
+    		
+    	}
+    
 	
 	
     	PerformanceCost horseP=new PerformanceCost(horse,engineSlider.getValue());
@@ -247,13 +281,11 @@ public class CarDataController {
     	//Car Type 
     	String carTypeChosen= (String) carType.getValue();   
     	AppearanceCost carCost = new AppearanceCost(carTypeChosen);  
-    	carTypeCost = carCost.getCarTypeCost(carTypeChosen);
-    
+    	carTypeCost = carCost.getCarTypeCost(carTypeChosen);   	
     	
     	
-    	
-    	
-    	
+    	//Color Cost
+    	colourCost= getColourCost(carTypeCost);
     	
     	//number of seats 
     	AppearanceCost Seats= new AppearanceCost(seatSlider.getValue());
