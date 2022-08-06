@@ -296,8 +296,10 @@ public class CarDataController {
     	colourCost= getColourCost(carTypeCost);
     	
     	//number of seats 
-    	AppearanceCost Seats= new AppearanceCost(seatSlider.getValue());
-    	seatCost= Seats.getSeatCost(seatSlider.getValue());
+    	double numberOfSeats= seatSlider.getValue();
+   
+    	AppearanceCost Seats= new AppearanceCost(numberOfSeats);
+    	seatCost= Seats.getSeatCost(numberOfSeats);
     	
     	
     	//Light Cost  
