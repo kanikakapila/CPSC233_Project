@@ -132,15 +132,4 @@
 
 
 
-   	// Engine Cost Calculator
-//
-//    	while(engineSlider.getValue()>=1000) {
-//    		if (engineSlider.getValue()<2500) {
-//    			engineCost+= (engineSlider.getValue())*eCost;
-//    			break;
-//    		}
-//    		else {
-//    			engineCost+= (engineSlider.getValue())*(eCost+1);
-//    			break;
-//    		}
-//    		}
+   

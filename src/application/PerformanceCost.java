@@ -85,7 +85,6 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 		else {
 			chosenHorsepower=  chosenEngine*(maxHorsepower/maxEngine); 
 			hpCost=chosenHorsepower*hpMultiplier;
-			
 		}
 		System.out.println("Horse " +chosenHorsepower + "Cost " + hpCost );
 		return hpCost;
