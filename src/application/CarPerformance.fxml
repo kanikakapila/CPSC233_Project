@@ -220,12 +220,34 @@
                      </children>
                   </VBox>
                </content></Tab>
+
+            <Tab text="Car reciept">
             <Tab fx:id="outputTab" text="Receipt">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
+                              <VBox prefHeight="100.0" prefWidth="623.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="677.0" text="Description of car" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+            						<Label fx:id="engineLabel" text=""/>
+                                    <Label fx:id="fuelLabel" prefHeight="21.0" prefWidth="695.0" text="Kindly choose from the options to build your dream car.">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="seatLabel" prefHeight="21.0" prefWidth="732.0" text="">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
                               <Label prefHeight="40.0" prefWidth="355.0" text="Description of car" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="28.0" />

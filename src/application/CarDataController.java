@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.paint.Color;
 
 public class CarDataController {
 
@@ -104,6 +105,19 @@ public class CarDataController {
     private Label CostLabel;
     
     @FXML
+
+    private Label engineLabel;
+    
+    @FXML
+    private Label fuelLabel;
+    
+    @FXML
+    private Label seatLabel;
+    
+    @FXML
+    private Label colorLabel;
+    
+    
     private Label description;
     
     @FXML
@@ -202,6 +216,36 @@ public class CarDataController {
     	else {
     		colorCost=Cost2;
     	}
+
+    	 	 	
+    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
+    	//appearance 
+    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
+    	costOfCar = performanceCost + appearanceCost ;
+    	
+//    	//Debugging 
+//    	System.out.println("EC:" + engineCost);
+//    	System.out.println("FC:" + fuelCost);
+//    	System.out.println("TC:" + tireCost);
+//    	System.out.println("TransCost:" + transmissionCost);
+//    	System.out.println("HorseCost:" + hPCost);
+//    	System.out.println("full"); 
+//    	System.out.println("Car Type Cost" + carTypeCost); 
+//    	System.out.println("Number of seats cost"+seatCost); 
+//    	System.out.println("Light Cost:" + lightCost); 
+//    	System.out.println("Safety Cost:" + safetyFeaturesCost);
+//    	
+//    	
+//    	System.out.println("Car Cost:" + costOfCar);
+//    	
+    	Color c = color.getValue();
+    	String a = c.toString();
+    	fuelLabel.setText(String.format("Type of fuel: "+ fuelType.getValue()+" Type of car: "+ carType.getValue()));
+    	seatLabel.setText(String.format("Number of seats: %.0f", seatSlider.getValue()));
+    	engineLabel.setText(String.format("Your engine size: %.1f", engineSlider.getValue()));
+    	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costOfCar ));
+    	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
+
     	
     	
 		return colorCost;
