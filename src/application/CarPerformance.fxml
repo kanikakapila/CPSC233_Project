@@ -12,14 +12,14 @@
    <children>
       <TabPane prefHeight="855.0" prefWidth="1240.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Performance">
+          <Tab fx:id="performanceTab" text="Performance">
                <content>
                   <VBox prefHeight="824.0" prefWidth="1124.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="yourEngineSize" prefHeight="37.0" prefWidth="215.0" text="Your Engine Size (in Cubic Centimeters): " />
-                              <Slider fx:id="engineSlider" majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="525.0" showTickLabels="true" showTickMarks="true" />
+                              <Slider fx:id="engineSlider" majorTickUnit="250.0" max="5000.0" min="1000.0" minorTickCount="0" prefHeight="75.0" prefWidth="525.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                               <Label text="CC">
                                  <HBox.margin>
                                     <Insets right="5.0" top="15.0" />
@@ -102,7 +102,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="horsePower" text="Horsepower :" />
-                              <TextField fx:id="horsepower" prefHeight="24.0" prefWidth="224.0">
+                              <TextField fx:id="horsepower" prefHeight="24.0" prefWidth="224.0" text="0">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -114,11 +114,16 @@
                               </Label>
                            </children>
                         </HBox>
+                        <VBox prefHeight="73.0" prefWidth="1240.0">
+                           <children>
+                              <Label fx:id="horseErrorLabel" prefHeight="27.0" prefWidth="1101.0" textFill="#e82020" />
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </content>
           </Tab>
-          <Tab text="Appearance">
+          <Tab fx:id="appearanceTab" text="Appearance">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -150,7 +155,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="Number of Seats  " />
-                              <Slider fx:id="seatSlider" majorTickUnit="2.0" max="8.0" min="2.0" minorTickCount="2" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" />
+                              <Slider fx:id="seatSlider" majorTickUnit="2.0" max="8.0" min="2.0" minorTickCount="0" prefHeight="33.0" prefWidth="274.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -215,7 +220,9 @@
                      </children>
                   </VBox>
                </content></Tab>
+
             <Tab text="Car reciept">
+            <Tab fx:id="outputTab" text="Receipt">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -241,6 +248,11 @@
                                     </Label>
                                  </children>
                               </VBox>
+                              <Label prefHeight="40.0" prefWidth="355.0" text="Description of car" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -264,10 +276,18 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Monthly cost of the car">
-                                 <font>
-                                    <Font name="System Bold" size="28.0" />
-                                 </font></Label>
+                              <VBox prefHeight="100.0" prefWidth="1274.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="409.0" text="Monthly cost of the car">
+                                       <font>
+                                          <Font name="System Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="monthlyLabel" text="Select a Payment Method to Update" />
+                                    <Label fx:id="insuranceLabel" text="Insurance Cost:" />
+                                    <Label fx:id="gasPriceLabel" text="Estimated Gas Cost: " />
+                                 </children>
+                              </VBox>
                            </children>
                         </HBox>
                      </children>

@@ -1,5 +1,7 @@
 package application;
 
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -74,6 +76,8 @@ public class CarDataController {
     @FXML
     private CheckBox electronicStab;
 
+    @FXML 
+    private Label horseErrorLabel;
     @FXML
     private Label transmissionType;
 
@@ -101,6 +105,7 @@ public class CarDataController {
     private Label CostLabel;
     
     @FXML
+
     private Label engineLabel;
     
     @FXML
@@ -113,56 +118,23 @@ public class CarDataController {
     private Label colorLabel;
     
     
+    private Label description;
     
-    @FXML 
-    void fullPaymentCost(ActionEvent event) {
-    	//Keeps Track of the Price
-    	double costOfCar=0;
-    	// Engine Multiplier
-    	double eCost=1.08;
-    	double engineCost=0;
-    	//Fuel
-    	double fuelCost=0;
-    	//Tire
+    @FXML
+    private Label monthlyLabel;
+    
+    @FXML
+    private Label ESize;
+    
+    @FXML
+    private Label insuranceLabel;
+    
+    @FXML
+    private Label gasPriceLabel;
+   
+    
+    public double getTireCost() {
     	double tireCost=0;
-    	//TransmissionType
-    	double transmissionCost=0;
-    	//HorsePower
-    	double hPCost=0;
-    	double hpMultiplier=12.27; 
-    	//car type and color
-    	double carTypeCost = 0; 
-    	double colourCost = 150;   
-    	//number of seats   
-    	double seatCost = 0;
-    	double numberOfSeats = 138.43;  
-    	//additional lights
-    	double lightCost = 0; 
-    	//safety features
-    	double safetyFeaturesCost = 0;
-    	
-    	
-    	
-    	// Engine Cost Calculator
-    	engineCost+= (engineSlider.getValue())*eCost;
-    	
-    	// Fuel Type
-    	
-    	String fuel= (String) fuelType.getValue();
-    	if (fuel=="Electric") {
-    		fuelCost+=2500.63;
-    	}
-    	else if (fuel=="Petrol") {
-    		fuelCost+=1400.75;
-    	}
-    	else if (fuel=="Hyrbid") {
-    		fuelCost+=1600.25;
-    	}
-    	else {
-    		fuelCost+=1350.92;
-    	}
-    	
-    	// Tires
     	 if (summerTires.isSelected()) {
     		 tireCost+=280.22;
     	 }
@@ -179,8 +151,17 @@ public class CarDataController {
     	if (allTires.isSelected()) {
     		tireCost+=240.74;
     	}
-    	//Transmisiion
-    	
+    	/// if no tires is selected  then default charge for all season tires;
+    	if (!summerTires.isSelected() && !winterTires.isSelected() && !offTires.isSelected() && !performanceTires.isSelected() && !allTires.isSelected()) {
+    		tireCost+=240.74;
+    		//Selects all season tires automatically
+    		allTires.setSelected(true);
+    	}
+		return tireCost;
+    }
+    
+    public double getTransmissionCost() {
+    	double transmissionCost=0;
     	if (autoTrans.isSelected()) {
     		transmissionCost+=2433;
     	}
@@ -190,91 +171,52 @@ public class CarDataController {
     	else if (dualTrans.isSelected()) {
     		transmissionCost+=3000.21;
     	}
+    	else {
+    		transmissionCost=1560.64;
+    	}
+		return transmissionCost;
+    }
+    
+    public double getSafetyFeaturesCost() { 
+		int safetyFeaturesCost = 0;
+	
+	if(airBags.isSelected()) { 
+		safetyFeaturesCost += 6000;
+		
+	} 
+	if(antiLBrakes.isSelected()) { 
+		safetyFeaturesCost +=550 ;
+		
+	}
+	if(smartSus.isSelected()) {
+		safetyFeaturesCost += 1800 ;
+	}
+	if(electronicStab.isSelected()) {
+		safetyFeaturesCost += 100;
+	}
+	if(!airBags.isSelected() && !antiLBrakes.isSelected() && !smartSus.isSelected()
+			&& electronicStab.isSelected()) {
+		safetyFeaturesCost += 6000;
+		airBags.setSelected(true);
+		
+	}
+	return safetyFeaturesCost;
+	}
+    
+    public double getColourCost(double carTypeCost) {
+    	double colorCost=0;
+    	// "Sedan","SUV","Van","Hatchback" Cost
+    	double Cost1=450;
+    	// "Limousine","Truck","Sports Car" cost
+    	double Cost2=650;
     	
-    	// HorsePower
-    	double horse= Double.parseDouble(horsepower.getText());
-    	hPCost=horse*hpMultiplier;
+    	if(carTypeCost<=3500) {
+    		colorCost=Cost1;
+    	}
+    	else {
+    		colorCost=Cost2;
+    	}
 
-    	//Car Type 
-    	String carTypeChosen= (String) carType.getValue(); 
-    	if(carTypeChosen =="SUV") { 
-    		carTypeCost += 3000;
-    		 
-    	} 
-    	else if(carTypeChosen == "Sedan") { 
-    		carTypeCost += 2500;
-    		
-    	} 
-    	else if(carTypeChosen == "Van") { 
-    		carTypeCost += 3300;
-    		
-    	} 
-    	else if(carTypeChosen == "Hatchback") { 
-    		carTypeCost += 1700;
-    		
-    	} 
-    	else if(carTypeChosen == "Limousine") { 
-    		carTypeCost += 4000 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Truck") { 
-    		carTypeCost += 4500;
-    		
-    	} 
-    	else { 
-    		carTypeCost += 5000 ;
-    		
-    	} 
-    	//number of seats 
-    	seatCost = seatSlider.getValue()*numberOfSeats; 
-    	
-    	//Light Cost 
-    	String lights= (String) addLights.getValue(); 
-    	if(lights =="Head Lights") { 
-    		lightCost += 200;
-    		 
-    	} 
-    	else if(lights == "Tail Lights") { 
-    		lightCost += 438;
-    		
-    	} 
-    	else if(lights == "Signal Lights") { 
-    		lightCost += 150;
-    		
-    	} 
-    	else if(lights == "Hazard Lights") { 
-    		lightCost += 60;
-    		
-    	} 
-    	else if(carTypeChosen == "Fog Lights") { 
-    		lightCost += 150 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Daytime Running Lights") { 
-    		lightCost += 50;
-    		
-    	}  
-    	
-    	else { 
-    		lightCost +=  80;
-    		
-    	} 
-    	
-    	//Safety features
-    	if(airBags.isSelected()) { 
-    		safetyFeaturesCost += 6000;
-    		
-    	} 
-    	if(antiLBrakes.isSelected()) { 
-    		safetyFeaturesCost +=550 ;
-    		
-    	}
-    	if(smartSus.isSelected()) {
-    		safetyFeaturesCost += 1800 ;
-    	}
-    	if(electronicStab.isSelected()) {
-    		safetyFeaturesCost += 100;
-    	}
     	 	 	
     	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
     	//appearance 
@@ -303,16 +245,18 @@ public class CarDataController {
     	engineLabel.setText(String.format("Your engine size: %.1f", engineSlider.getValue()));
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costOfCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
+
     	
+    	
+		return colorCost;
     	
     }
-    @FXML
-    void halfDownCost(ActionEvent event) {
-    	//Keeps Track of the Price
+    
+   
+    public double cost() { 
     	//Keeps Track of the Price
     	double costOfCar=0;
-    	// Engine Multiplier
-    	double eCost=1.08;
+    	//Engine
     	double engineCost=0;
     	//Fuel
     	double fuelCost=0;
@@ -322,359 +266,242 @@ public class CarDataController {
     	double transmissionCost=0;
     	//HorsePower
     	double hPCost=0;
-    	double hpMultiplier=12.27; 
+    	
     	//car type and color
     	double carTypeCost = 0; 
-    	double colourCost = 150;   
+    	double colourCost = 0;   
     	//number of seats   
     	double seatCost = 0;
-    	double numberOfSeats = 138.43;  
+    
     	//additional lights
     	double lightCost = 0; 
     	//safety features
     	double safetyFeaturesCost = 0;
+ 
+    	// Engine
+    	PerformanceCost Engine= new PerformanceCost(engineSlider.getValue());
+    	engineCost= Engine.getEngineCost(engineSlider.getValue());
     	
-    	
-    	
-    	// Engine Cost Calculator
-    	engineCost+= (engineSlider.getValue())*eCost;
-    	
-    	// Fuel Type
-    	
+    	// Fuel
     	String fuel= (String) fuelType.getValue();
-    	if (fuel=="Electric") {
-    		fuelCost+=2500.63;
-    	}
-    	else if (fuel=="Petrol") {
-    		fuelCost+=1400.75;
-    	}
-    	else if (fuel=="Hyrbid") {
-    		fuelCost+=1600.25;
-    	}
-    	else {
-    		fuelCost+=1350.92;
-    	}
+    	PerformanceCost Fuel=new PerformanceCost(fuel);
+    	fuelCost=Fuel.getFuelCost(fuel);
     	
     	// Tires
-    	 if (summerTires.isSelected()) {
-    		 tireCost+=280.22;
-    	 }
-    	if (winterTires.isSelected()){
-    		tireCost+=290.84;
-    	}
-    	if (offTires.isSelected()){
-    		tireCost+=350.36;
-    	}
-    	if (performanceTires.isSelected()){
-    		tireCost+=425.22;
-    	}
-    		
-    	if (allTires.isSelected()) {
-    		tireCost+=240.74;
-    	}
+    	tireCost=getTireCost();
+
     	//Transmisiion
+    	transmissionCost=getTransmissionCost();
     	
-    	if (autoTrans.isSelected()) {
-    		transmissionCost+=2433;
-    	}
-    	else if(manualTrans.isSelected()) {
-    		transmissionCost+=1560.64;
-    	}
-    	else if (dualTrans.isSelected()) {
-    		transmissionCost+=3000.21;
-    	}
-    	
+
     	// HorsePower
-    	double horse= Double.parseDouble(horsepower.getText());
-    	hPCost=horse*hpMultiplier;
+    	String h = horsepower.getText();
+    	//variable to display error
+    	String y =horsepower.getText();
+
+    	boolean horsepowerCheck = true;
+    	for(char c: h.toCharArray()) {
+    		if(!Character.isDigit(c)) {
+    			horsepowerCheck = false; 
+    			horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
+    			h="0";
+    			
+    			;
+    		}
+    	}    	
+    	
+    	double horse= Double.parseDouble(h); 
+    	// Horsepower cannot exceed 500
+    	if (horse>500 || horse<100) {
+    		horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
+    		horse=0;
+    	}
+    	else if(horse<=500 && horse>=100) {
+    		horseErrorLabel.setText("");
+    	
+    		
+    	}
+    
+	
+	
+    	PerformanceCost horseP=new PerformanceCost(horse,engineSlider.getValue());
+    	double engineChosen=engineSlider.getValue();
+    	
+    	
+    	hPCost=horseP.getHorsepowerCost(horse,engineChosen);
 
     	//Car Type 
-    	String carTypeChosen= (String) carType.getValue(); 
-    	if(carTypeChosen =="SUV") { 
-    		carTypeCost += 3000;
-    		 
-    	} 
-    	else if(carTypeChosen == "Sedan") { 
-    		carTypeCost += 2500;
-    		
-    	} 
-    	else if(carTypeChosen == "Van") { 
-    		carTypeCost += 3300;
-    		
-    	} 
-    	else if(carTypeChosen == "Hatchback") { 
-    		carTypeCost += 1700;
-    		
-    	} 
-    	else if(carTypeChosen == "Limousine") { 
-    		carTypeCost += 4000 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Truck") { 
-    		carTypeCost += 4500;
-    		
-    	} 
-    	else { 
-    		carTypeCost += 5000 ;
-    		
-    	} 
+    	String carTypeChosen= (String) carType.getValue();   
+    	AppearanceCost carCost = new AppearanceCost(carTypeChosen);  
+    	carTypeCost = carCost.getCarTypeCost(carTypeChosen);   	
+    	
+    	
+    	//Color Cost
+    	colourCost= getColourCost(carTypeCost);
+    	
     	//number of seats 
-    	seatCost = seatSlider.getValue()*numberOfSeats; 
+    	double numberOfSeats= seatSlider.getValue();
+   
+    	AppearanceCost Seats= new AppearanceCost(numberOfSeats);
+    	seatCost= Seats.getSeatCost(numberOfSeats);
     	
-    	//Light Cost 
+    	
+    	//Light Cost  
+    	
+    	
     	String lights= (String) addLights.getValue(); 
-    	if(lights =="Head Lights") { 
-    		lightCost += 200;
-    		 
-    	} 
-    	else if(lights == "Tail Lights") { 
-    		lightCost += 438;
-    		
-    	} 
-    	else if(lights == "Signal Lights") { 
-    		lightCost += 150;
-    		
-    	} 
-    	else if(lights == "Hazard Lights") { 
-    		lightCost += 60;
-    		
-    	} 
-    	else if(carTypeChosen == "Fog Lights") { 
-    		lightCost += 150 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Daytime Running Lights") { 
-    		lightCost += 50;
-    		
-    	}  
+    	AppearanceCost lightTypeCost = new AppearanceCost(lights);
+    	lightCost = lightTypeCost.getLightsCost(lights);
     	
-    	else { 
-    		lightCost +=  80;
-    		
-    	} 
+    	//Safety features  
+    	safetyFeaturesCost  =  getSafetyFeaturesCost();
+    
+
+    	PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
+    	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
+    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost();
     	
-    	//Safety features
-    	if(airBags.isSelected()) { 
-    		safetyFeaturesCost += 6000;
-    		
-    	} 
-    	if(antiLBrakes.isSelected()) { 
-    		safetyFeaturesCost +=550 ;
-    		
+    	return costOfCar;
+	}
+    
+    @FXML 
+    void fullPaymentCost(ActionEvent event) {
+    	double costofCar = cost();
+    	
+    	// Output Screen
+    	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costofCar ));
+    	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
+    	double insuranceCost=0;
+    	double gasPrice=0;
+    	
+    	
+    	//Insurance
+    	
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
     	}
-    	if(smartSus.isSelected()) {
-    		safetyFeaturesCost += 1800 ;
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	
+    	
     	}
-    	if(electronicStab.isSelected()) {
-    		safetyFeaturesCost += 100;
-    	}
-    	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
-    	
-    	double interest= (10.0/100)*costOfCar;
     	
     	
-    	double half= (50.0/100)* costOfCar;
     	
-    	double monthly = costOfCar-half;
+   
+
+
+
+	@FXML
+    void halfDownCost(ActionEvent event) {
+     double costofCar = cost();
+    	double interest= (10.0/100)*costofCar;
+    	
+    	
+    	double half= (50.0/100)* costofCar;
+    	
+    	double monthly = costofCar-half;
     	double total = (monthly+interest)/12;
     	
-    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", costOfCar+interest ));
+    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", costofCar+interest ));
     	System.out.println("half");
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 12 months : %.2f", half,total ));
     	
+    	double insuranceCost=0;
+    	double gasPrice=0;
     	
     	
+    	//Insurance
     	
-    }
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
+    	}
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	
+    	
+    	}
+    	
+    	
+
+    	
+    
     @FXML
     void quarterDownCost(ActionEvent event) {
-    	//Keeps Track of the Price
-    	//Keeps Track of the Price
-    	double costOfCar=0;
-    	// Engine Multiplier
-    	double eCost=1.08;
-    	double engineCost=0;
-    	//Fuel
-    	double fuelCost=0;
-    	//Tire
-    	double tireCost=0;
-    	//TransmissionType
-    	double transmissionCost=0;
-    	//HorsePower
-    	double hPCost=0;
-    	double hpMultiplier=12.27; 
-    	//car type and color
-    	double carTypeCost = 0; 
-    	double colourCost = 150;   
-    	//number of seats   
-    	double seatCost = 0;
-    	double numberOfSeats = 138.43;  
-    	//additional lights
-    	double lightCost = 0; 
-    	//safety features
-    	double safetyFeaturesCost = 0;
+    	double costofCar = cost();
     	
     	
-    	
-    	// Engine Cost Calculator
-    	engineCost+= (engineSlider.getValue())*eCost;
-    	
-    	// Fuel Type
-    	
-    	String fuel= (String) fuelType.getValue();
-    	if (fuel=="Electric") {
-    		fuelCost+=2500.63;
-    	}
-    	else if (fuel=="Petrol") {
-    		fuelCost+=1400.75;
-    	}
-    	else if (fuel=="Hyrbid") {
-    		fuelCost+=1600.25;
-    	}
-    	else {
-    		fuelCost+=1350.92;
-    	}
-    	
-    	// Tires
-    	 if (summerTires.isSelected()) {
-    		 tireCost+=280.22;
-    	 }
-    	if (winterTires.isSelected()){
-    		tireCost+=290.84;
-    	}
-    	if (offTires.isSelected()){
-    		tireCost+=350.36;
-    	}
-    	if (performanceTires.isSelected()){
-    		tireCost+=425.22;
-    	}
-    		
-    	if (allTires.isSelected()) {
-    		tireCost+=240.74;
-    	}
-    	//Transmisiion
-    	
-    	if (autoTrans.isSelected()) {
-    		transmissionCost+=2433;
-    	}
-    	else if(manualTrans.isSelected()) {
-    		transmissionCost+=1560.64;
-    	}
-    	else if (dualTrans.isSelected()) {
-    		transmissionCost+=3000.21;
-    	}
-    	
-    	// HorsePower
-    	double horse= Double.parseDouble(horsepower.getText());
-    	hPCost=horse*hpMultiplier;
-
-    	//Car Type 
-    	String carTypeChosen= (String) carType.getValue(); 
-    	if(carTypeChosen =="SUV") { 
-    		carTypeCost += 3000;
-    		 
-    	} 
-    	else if(carTypeChosen == "Sedan") { 
-    		carTypeCost += 2500;
-    		
-    	} 
-    	else if(carTypeChosen == "Van") { 
-    		carTypeCost += 3300;
-    		
-    	} 
-    	else if(carTypeChosen == "Hatchback") { 
-    		carTypeCost += 1700;
-    		
-    	} 
-    	else if(carTypeChosen == "Limousine") { 
-    		carTypeCost += 4000 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Truck") { 
-    		carTypeCost += 4500;
-    		
-    	} 
-    	else { 
-    		carTypeCost += 5000 ;
-    		
-    	} 
-    	//number of seats 
-    	seatCost = seatSlider.getValue()*numberOfSeats; 
-    	
-    	//Light Cost 
-    	String lights= (String) addLights.getValue(); 
-    	if(lights =="Head Lights") { 
-    		lightCost += 200;
-    		 
-    	} 
-    	else if(lights == "Tail Lights") { 
-    		lightCost += 438;
-    		
-    	} 
-    	else if(lights == "Signal Lights") { 
-    		lightCost += 150;
-    		
-    	} 
-    	else if(lights == "Hazard Lights") { 
-    		lightCost += 60;
-    		
-    	} 
-    	else if(carTypeChosen == "Fog Lights") { 
-    		lightCost += 150 ;
-    		
-    	} 
-    	else if(carTypeChosen == "Daytime Running Lights") { 
-    		lightCost += 50;
-    		
-    	}  
-    	
-    	else { 
-    		lightCost +=  80;
-    		
-    	} 
-    	
-    	//Safety features
-    	if(airBags.isSelected()) { 
-    		safetyFeaturesCost += 6000;
-    		
-    	} 
-    	if(antiLBrakes.isSelected()) { 
-    		safetyFeaturesCost +=550 ;
-    		
-    	}
-    	if(smartSus.isSelected()) {
-    		safetyFeaturesCost += 1800 ;
-    	}
-    	if(electronicStab.isSelected()) {
-    		safetyFeaturesCost += 100;
-    	}
-    	 	 	
-    	double performanceCost= engineCost + fuelCost + tireCost + transmissionCost + hPCost ; 
-    	//appearance 
-    	double appearanceCost = colourCost+carTypeCost+seatCost+lightCost+safetyFeaturesCost;
-    	costOfCar = performanceCost + appearanceCost ;
-    	
-    	double interest= (15.0/100)*costOfCar;
+    	double interest= (15.0/100)*costofCar;
     	
     	
-    	double half= (25.0/100)*costOfCar;
+    	double half= (25.0/100)*costofCar;
     	
-    	double monthly = costOfCar-half;
+    	double monthly = costofCar-half;
     	double total = (monthly+interest)/24;
     	
-    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", interest+costOfCar ));
+    	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", interest+costofCar ));
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 24 months : %.2f", half,total ));    	
     	System.out.println("quarter");
     	
     	
+    	double insuranceCost=0;
+    	double gasPrice=0;
     	
-    }
+    	
+    	//Insurance
+    	
+    	MonthlyCost i= new MonthlyCost(costofCar);
+    	insuranceCost=i.getInsurance(costofCar);
+    	
+    	//GasPrice
+    	String FuelTypeChosenGas= (String)fuelType.getValue();
+    	
+    	if (FuelTypeChosenGas==null) {
+    		FuelTypeChosenGas="Diesel";
+    	}
+    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
+    	gasPrice= g.getGasPrice(FuelTypeChosenGas);
+    	
+    	// Total
+    	double monthlyCost=insuranceCost+gasPrice;
+    	//Description
+    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
+    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	
+    	
+    	}
     
     
     
