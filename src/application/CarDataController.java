@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.paint.Color;
 
 public class CarDataController {
 
@@ -98,6 +99,19 @@ public class CarDataController {
     
     @FXML
     private Label CostLabel;
+    
+    @FXML
+    private Label engineLabel;
+    
+    @FXML
+    private Label fuelLabel;
+    
+    @FXML
+    private Label seatLabel;
+    
+    @FXML
+    private Label colorLabel;
+    
     
     
     @FXML 
@@ -282,7 +296,11 @@ public class CarDataController {
 //    	
 //    	System.out.println("Car Cost:" + costOfCar);
 //    	
-    	
+    	Color c = color.getValue();
+    	String a = c.toString();
+    	fuelLabel.setText(String.format("Type of fuel: "+ fuelType.getValue()+" Type of car: "+ carType.getValue()));
+    	seatLabel.setText(String.format("Number of seats: %.0f", seatSlider.getValue()));
+    	engineLabel.setText(String.format("Your engine size: %.1f", engineSlider.getValue()));
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costOfCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
     	
