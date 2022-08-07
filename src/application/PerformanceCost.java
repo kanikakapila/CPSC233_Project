@@ -92,8 +92,3 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 	}
 
 	}
-	
-	
-
-
-	
