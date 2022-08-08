@@ -157,14 +157,14 @@ public class CarDataController {
 		return tireCost;
     }
     
-    public double getTransmissionCost() {
+   public double getTransmissionCost() {
     	double transmissionCost=0;
     	if (autoTrans.isSelected()) {
     		transmissionCost+=2433;
     	}
     	else if(manualTrans.isSelected()) {
     		transmissionCost+=1560.64;
-    	}
+    	} 
     	else if (dualTrans.isSelected()) {
     		transmissionCost+=3000.21;
     	}
@@ -173,7 +173,7 @@ public class CarDataController {
     	}
 		return transmissionCost;
     }
-    
+
     public double getSafetyFeaturesCost() { 
 		int safetyFeaturesCost = 0;
 	
@@ -257,8 +257,8 @@ public class CarDataController {
     	// Tires
     	tireCost=getTireCost();
 
-    	//Transmisiion
-    	transmissionCost=getTransmissionCost();
+    	//Transmission 
+    	transmissionCost = getTransmissionCost();
     	
 
     	// HorsePower

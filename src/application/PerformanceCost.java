@@ -13,7 +13,8 @@ PerformanceCost(double x){}
 
 PerformanceCost(String x){}
 
-PerformanceCost(double x, double y){}
+PerformanceCost(double x, double y){} 
+
 
 
 PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,  
@@ -89,6 +90,20 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 		System.out.println("Horse " +chosenHorsepower + "Cost " + hpCost );
 		return hpCost;
 		
+	}  
+//	double getTransmissionCost(String x) { 
+//		
+//		double transmissionCost = 0;
+//		String [] transmissionType = {"Automatic","Manual","Dual Transmission",};
+//		double [] cost = {2433,1560.64,3000.21}; 
+//		int index = 0;
+//		for(int i=0;i <transmissionType.length;i++) {
+//			 if(transmissionType[i].equals(x)) {
+//				 index = i;
+//			 }
+//		} 
+//		transmissionCost = cost[index];
+//		return transmissionCost ;
+		
 	}
 
-	}
