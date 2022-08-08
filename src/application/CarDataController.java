@@ -118,6 +118,17 @@ public class CarDataController {
     @FXML
     private Label gasPriceLabel;
    
+    @FXML
+    private Label engineLabel;
+    
+    @FXML
+    private Label fuelLabel;
+    
+    @FXML
+    private Label seatLabel;
+    
+    @FXML
+    private Label typeLabel;
     
     public double getTireCost() {
     	double tireCost=0;
@@ -320,11 +331,20 @@ public class CarDataController {
     	return costOfCar;
 	}
     
+    public void getDescription()
+    {
+    	engineLabel.setText(String.format("Your engine size:  %.1f", engineSlider.getValue() ));
+    	fuelLabel.setText(String.format("Your fuel type:  "+ fuelType.getValue()+"; Horse power of car: "+ horsepower.getText()));
+    	seatLabel.setText(String.format("Number of seats:  %.0f", seatSlider.getValue()));
+    	typeLabel.setText(String.format("Type of care:  "+ carType.getValue()+ "; Color of the car: "+color.getValue() ));
+    }
+    
     @FXML 
     void fullPaymentCost(ActionEvent event) {
     	double costofCar = cost();
     	
     	// Output Screen
+    	getDescription();
     	CostLabel.setText(String.format("Your total cost of the car in CAD :  %.1f", costofCar ));
     	totalCostLabel.setText(String.format("Your payment method is full hence the interest is zero"));
     	double insuranceCost=0;
@@ -400,6 +420,8 @@ public class CarDataController {
     	// Total
     	double monthlyCost=insuranceCost+gasPrice;
     	//Description
+    	getDescription();
+    	
     	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
     	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
     	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
@@ -452,19 +474,13 @@ public class CarDataController {
     	// Total
     	double monthlyCost=insuranceCost+gasPrice;
     	//Description
+    	getDescription();
+    	
     	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
     	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
     	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
     	
     	
     	}
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
