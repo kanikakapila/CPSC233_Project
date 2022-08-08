@@ -22,8 +22,8 @@ public class Car {
 			this.chosenAddLights = q; 
 	}
 	
-		
-		
+//		public String 
+//		
 		
 	}
 

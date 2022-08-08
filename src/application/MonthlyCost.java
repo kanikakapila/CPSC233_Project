@@ -41,7 +41,7 @@ public double getGasPrice(String x) {
 	}
 
 	
-	return gasPrice;
+	return gasPrice; 
 }
 
 }

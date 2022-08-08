@@ -334,9 +334,9 @@ public class CarDataController {
     public void getDescription()
     {
     	engineLabel.setText(String.format("Your engine size:  %.1f", engineSlider.getValue() ));
-    	fuelLabel.setText(String.format("Your fuel type:  "+ fuelType.getValue()+"; Horse power of car: "+ horsepower.getText()));
+    	fuelLabel.setText(String.format("Your fuel type:  "+ fuelType.getValue()+"; HorsePower of car: "+ horsepower.getText()));
     	seatLabel.setText(String.format("Number of seats:  %.0f", seatSlider.getValue()));
-    	typeLabel.setText(String.format("Type of care:  "+ carType.getValue()+ "; Color of the car: "+color.getValue() ));
+    	typeLabel.setText(String.format("Type of car:  "+ carType.getValue()+ "; Color of the car: "+color.getValue() ));
     }
     
     @FXML 
@@ -369,9 +369,9 @@ public class CarDataController {
     	// Total
     	double monthlyCost=insuranceCost+gasPrice;
     	//Description
-    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	monthlyLabel.setText(String.format("Your monthly cost of the car in CAD :  %.1f", monthlyCost));
     	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
-    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	gasPriceLabel.setText(String.format("Estimated Gas Cost:  %.1f", gasPrice));
     	
     	
     	}
@@ -422,9 +422,9 @@ public class CarDataController {
     	//Description
     	getDescription();
     	
-    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	monthlyLabel.setText(String.format("Your monthly cost of the car in CAD :  %.1f", monthlyCost));
     	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
-    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	gasPriceLabel.setText(String.format("Estimated Gas Cost:  %.1f", gasPrice));
     	
     	
     	}
@@ -476,9 +476,9 @@ public class CarDataController {
     	//Description
     	getDescription();
     	
-    	monthlyLabel.setText(String.format("Your monthly of the car in CAD :  %.1f", monthlyCost));
+    	monthlyLabel.setText(String.format("Your monthly cost of the car in CAD :  %.1f", monthlyCost));
     	insuranceLabel.setText(String.format("Insurance:  %.1f", insuranceCost));
-    	gasPriceLabel.setText(String.format("Estimared Gas Cost:  %.1f", gasPrice));
+    	gasPriceLabel.setText(String.format("Estimated Gas Cost:  %.1f", gasPrice));
     	
     	
     	}
