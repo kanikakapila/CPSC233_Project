@@ -15,6 +15,8 @@ PerformanceCost(String x){}
 
 PerformanceCost(double x, double y){}
 
+PerformanceCost(){}
+
 
 PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,  
 		double horseCost, double costOfTransmission ){

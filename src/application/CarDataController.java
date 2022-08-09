@@ -289,10 +289,11 @@ public class CarDataController {
     			horsepowerCheck = false; 
     			horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
     			h="0";
-    			
-    			;
     		}
-    	}    	
+    		else {
+    			horsepowerCheck=true;
+    		}
+    	}
     	
     	double horse= Double.parseDouble(h); 
     	// Horsepower cannot exceed 500
@@ -305,15 +306,15 @@ public class CarDataController {
     	
     		
     	}
-    
-	
+    	
+    	
 	
     	PerformanceCost horseP=new PerformanceCost(horse,engineSlider.getValue());
     	double engineChosen=engineSlider.getValue();
     	
     	
     	hPCost=horseP.getHorsepowerCost(horse,engineChosen);
-
+    	
     	//Car Type 
     	String carTypeChosen= (String) carType.getValue();   
     	AppearanceCost carCost = new AppearanceCost(carTypeChosen);  
@@ -343,8 +344,12 @@ public class CarDataController {
 
     	PerformanceCost performanceCost=  new PerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) ; 
     	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
-    	costOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost();
+    	PerformanceLabourCost pLCost=new PerformanceLabourCost();
+    	AppearanceLabourCost appCost= new AppearanceLabourCost();
+    	double priceOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost(); 
+    	double labourCost= pLCost.CalculatePerfLabourCost() + appCost.CalculateAppLabourCost();
     	
+    	costOfCar= priceOfCar + labourCost;
     	return costOfCar;
 	}
    
@@ -366,8 +371,23 @@ public class CarDataController {
     	else {
     		type=(String) carType.getValue();
     	}
+    	String h = horsepower.getText();
+    	//variable to display error
+    	String y =horsepower.getText();
+
+    	boolean horsepowerCheck = true;
+    	for(char c: h.toCharArray()) {
+    		if(!Character.isDigit(c)) {
+    			horsepowerCheck = false; 
+    			horseErrorLabel.setText("You cannot use " +y+ " as a horsepower. It should be some number between 100 and 500. Horsepower is automated according to your engine size.");
+    			h="0";
+    		}
+    		else {
+    			horsepowerCheck=true;
+    		}
+    	}
+    	double horse= Double.parseDouble(h);
     	
-    	double horse= Double.parseDouble(horsepower.getText());
     	
     	if (horsepower.getText().equals("0")|| horse>500 || horse<100){
     		horse=engineSlider.getValue()*500/5000;

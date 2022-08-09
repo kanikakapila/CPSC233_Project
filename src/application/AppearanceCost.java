@@ -13,6 +13,7 @@ AppearanceCost(String x){
 AppearanceCost(double d){
 }
 
+AppearanceCost(){};
 
 
 
