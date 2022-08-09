@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.paint.Color;
 
 public class CarDataController {
 
@@ -132,25 +133,31 @@ public class CarDataController {
     
     public double getTireCost() {
     	double tireCost=0;
+    	double[] Price = new double[5];
+    	 Price[0] = 280.22;
+    	 Price[1]= 290.84;
+    	 Price[2]= 350.36;
+    	 Price[3]= 425.22;
+    	 Price[4]= 240.75;
     	 if (summerTires.isSelected()) {
-    		 tireCost+=280.22;
+    		 tireCost+=Price[0];
     	 }
     	if (winterTires.isSelected()){
-    		tireCost+=290.84;
+    		tireCost+=Price[1];
     	}
     	if (offTires.isSelected()){
-    		tireCost+=350.36;
+    		tireCost+=Price[2];
     	}
     	if (performanceTires.isSelected()){
-    		tireCost+=425.22;
+    		tireCost+=Price[3];
     	}
     		
     	if (allTires.isSelected()) {
-    		tireCost+=240.74;
+    		tireCost+=Price[4];
     	}
     	/// if no tires is selected  then default charge for all season tires;
     	if (!summerTires.isSelected() && !winterTires.isSelected() && !offTires.isSelected() && !performanceTires.isSelected() && !allTires.isSelected()) {
-    		tireCost+=240.74;
+    		tireCost+=Price[4];
     		//Selects all season tires automatically
     		allTires.setSelected(true);
     	}
@@ -159,41 +166,46 @@ public class CarDataController {
     
     public double getTransmissionCost() {
     	double transmissionCost=0;
+    	double[] Price = new double[3];
+   	 Price[0] = 2433; // Price for Auto
+   	 Price[1]= 1560.64; // Price for Manual
+   	 Price[2]=3000.21; // Price for dual
     	if (autoTrans.isSelected()) {
-    		transmissionCost+=2433;
+    		transmissionCost+=Price[0];
     	}
     	else if(manualTrans.isSelected()) {
-    		transmissionCost+=1560.64;
+    		transmissionCost+=Price[1];
     	}
     	else if (dualTrans.isSelected()) {
-    		transmissionCost+=3000.21;
+    		transmissionCost+=Price[2];
     	}
     	else {
-    		transmissionCost=1560.64;
+    		transmissionCost=Price[1];
     	}
 		return transmissionCost;
     }
     
     public double getSafetyFeaturesCost() { 
 		int safetyFeaturesCost = 0;
-	
+		         //Airbags   Antilock   Smart Suspension    Electronic Stability
+	int[] Prices= {6000,     550,        1800,                 100};
 	if(airBags.isSelected()) { 
-		safetyFeaturesCost += 6000;
+		safetyFeaturesCost += Prices[0];
 		
 	} 
 	if(antiLBrakes.isSelected()) { 
-		safetyFeaturesCost +=550 ;
+		safetyFeaturesCost +=Prices[1] ;
 		
 	}
-	if(smartSus.isSelected()) {
-		safetyFeaturesCost += 1800 ;
+	if(smartSus.isSelected()) { 
+		safetyFeaturesCost +=Prices[3] ;
 	}
 	if(electronicStab.isSelected()) {
-		safetyFeaturesCost += 100;
+		safetyFeaturesCost += Prices[4];
 	}
 	if(!airBags.isSelected() && !antiLBrakes.isSelected() && !smartSus.isSelected()
 			&& electronicStab.isSelected()) {
-		safetyFeaturesCost += 6000;
+		safetyFeaturesCost +=Prices[0];
 		airBags.setSelected(true);
 		
 	}
@@ -330,13 +342,14 @@ public class CarDataController {
     	
     	return costOfCar;
 	}
+   
     
-    public void getDescription()
-    {
+    public void getDescription() {
+    
     	engineLabel.setText(String.format("Your engine size:  %.1f", engineSlider.getValue() ));
     	fuelLabel.setText(String.format("Your fuel type:  "+ fuelType.getValue()+"; HorsePower of car: "+ horsepower.getText()));
     	seatLabel.setText(String.format("Number of seats:  %.0f", seatSlider.getValue()));
-    	typeLabel.setText(String.format("Type of car:  "+ carType.getValue()+ "; Color of the car: "+color.getValue() ));
+    	typeLabel.setText(String.format("Type of car:  "+ carType.getValue()+ "; Color of the car: "+color.getValue().hashCode() ));
     }
     
     @FXML 
