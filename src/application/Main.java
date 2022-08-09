@@ -16,7 +16,7 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader(); 
 			VBox root = loader.load(new FileInputStream("src\\application\\CarPerformance.fxml"));
-			Scene scene = new Scene(root,900,400);
+			Scene scene = new Scene(root,900,550);
 			CarDataController controller =(CarDataController)loader.getController();
 			primaryStage.setTitle("Your Dream Car");
 			primaryStage.setScene(scene);
