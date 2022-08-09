@@ -3,7 +3,7 @@ package application;
 public class PerformanceLabourCost extends PerformanceCost {
 	PerformanceLabourCost(double x) {
 		super(x);
-		// TODO Auto-generated constructor stub
+
 	}
 	PerformanceLabourCost(){}
 

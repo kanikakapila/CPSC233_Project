@@ -393,7 +393,7 @@ public class CarDataController {
     		horse=engineSlider.getValue()*500/5000;
     	}
     	engineLabel.setText(String.format("Your engine size:  %.1f", engineSlider.getValue() ));
-    	fuelLabel.setText(String.format("Your fuel type:  "+ fuel+"; HorsePower of car: "+ horse));
+    	fuelLabel.setText(String.format("Your fuel type:  "+ fuel+"               HorsePower of car: "+ horse));
     	seatLabel.setText(String.format("Number of seats:  %.0f", seatSlider.getValue()));
     	typeLabel.setText(String.format("Type of car:  "+ type));
     }
@@ -421,7 +421,7 @@ public class CarDataController {
     	if (FuelTypeChosenGas==null) {
     		FuelTypeChosenGas="Diesel";
     	}
-    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	
     	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
     	gasPrice= g.getGasPrice(FuelTypeChosenGas);
     	
@@ -453,7 +453,7 @@ public class CarDataController {
     	double total = (monthly+interest)/12;
     	
     	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", costofCar+interest ));
-    	System.out.println("half");
+    	
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 12 months : %.2f", half,total ));
     	
@@ -508,7 +508,7 @@ public class CarDataController {
     	CostLabel.setText(String.format("Your total cost of the car in CAD including interest :  %.1f", interest+costofCar ));
     	totalCostLabel.setText(String.format("Your total downpayment of the car in CAD "
     			+ "is  %.1f and your monthly payment for each month for the next 24 months : %.2f", half,total ));    	
-    	System.out.println("quarter");
+    	
     	
     	
     	double insuranceCost=0;
