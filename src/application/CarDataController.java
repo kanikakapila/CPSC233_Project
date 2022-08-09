@@ -39,6 +39,9 @@ public class CarDataController {
 
     @FXML
     private ColorPicker color;
+    
+    @FXML
+    private ColorPicker color2;
 
     @FXML
     private CheckBox allTires; 
@@ -271,7 +274,9 @@ public class CarDataController {
 
     	//Transmisiion
     	transmissionCost=getTransmissionCost();
-    	
+    	 
+    	//Color
+    	color2.setValue(color.getValue());
 
     	// HorsePower
     	String h = horsepower.getText();
@@ -345,11 +350,32 @@ public class CarDataController {
    
     
     public void getDescription() {
-    
+    	String fuel = "";
+    	if (fuelType.getValue() == null) {
+    		fuel="Diesel";
+    	}
+    	else {
+    		fuel=(String) fuelType.getValue();
+    	}
+    	
+    	String type="";
+    	
+    	if (carType.getValue()==null) {
+    		type="Sports Car";
+    	}
+    	else {
+    		type=(String) carType.getValue();
+    	}
+    	
+    	double horse= Double.parseDouble(horsepower.getText());
+    	
+    	if (horsepower.getText().equals("0")|| horse>500 || horse<100){
+    		horse=engineSlider.getValue()*500/5000;
+    	}
     	engineLabel.setText(String.format("Your engine size:  %.1f", engineSlider.getValue() ));
-    	fuelLabel.setText(String.format("Your fuel type:  "+ fuelType.getValue()+"; HorsePower of car: "+ horsepower.getText()));
+    	fuelLabel.setText(String.format("Your fuel type:  "+ fuel+"; HorsePower of car: "+ horse));
     	seatLabel.setText(String.format("Number of seats:  %.0f", seatSlider.getValue()));
-    	typeLabel.setText(String.format("Type of car:  "+ carType.getValue()+ "; Color of the car: "+color.getValue().hashCode() ));
+    	typeLabel.setText(String.format("Type of car:  "+ type));
     }
     
     @FXML 

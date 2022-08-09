@@ -224,13 +224,13 @@
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="244.0" prefWidth="1240.0">
                            <children>
-                              <VBox prefHeight="100.0" prefWidth="688.0">
+                              <VBox prefHeight="252.0" prefWidth="688.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="570.0" text="Description of car" textAlignment="CENTER">
                                        <font>
-                                          <Font name="System Bold" size="28.0" />
+                                          <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="engineLabel" prefHeight="21.0" prefWidth="803.0" text="">
@@ -253,6 +253,20 @@
                                           <Insets bottom="10.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
+                                    <VBox prefHeight="54.0" prefWidth="688.0">
+                                       <children>
+                                          <HBox prefHeight="56.0" prefWidth="688.0">
+                                             <children>
+                                                <Label text="Color Chosen :" />
+                                                <ColorPicker fx:id="color2" prefHeight="34.0" prefWidth="112.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </ColorPicker>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </VBox>
                            </children>
@@ -263,7 +277,7 @@
                                  <children>
                                      <Label prefHeight="21.0" prefWidth="1411.0" text="Total cost of the car">
                                        <font>
-                                          <Font name="System Bold" size="28.0" />
+                                          <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="CostLabel" prefHeight="21.0" prefWidth="1346.0" text="Choose a payment method" />
@@ -278,11 +292,11 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <VBox prefHeight="100.0" prefWidth="1274.0">
+                              <VBox prefHeight="168.0" prefWidth="1240.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="409.0" text="Monthly cost of the car">
                                        <font>
-                                          <Font name="System Bold" size="28.0" />
+                                          <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="monthlyLabel" text="Select a Payment Method to Update" />
