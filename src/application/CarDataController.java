@@ -201,10 +201,10 @@ public class CarDataController {
 		
 	}
 	if(smartSus.isSelected()) { 
-		safetyFeaturesCost +=Prices[3] ;
+		safetyFeaturesCost +=Prices[2] ;
 	}
 	if(electronicStab.isSelected()) {
-		safetyFeaturesCost += Prices[4];
+		safetyFeaturesCost += Prices[3];
 	}
 	if(!airBags.isSelected() && !antiLBrakes.isSelected() && !smartSus.isSelected()
 			&& electronicStab.isSelected()) {
