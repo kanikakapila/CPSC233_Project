@@ -248,7 +248,7 @@
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </Button>
-                              <Label text="Note : Always Click on the button when you make any chnanges" textFill="#ae1b1b">
+                              <Label text="Note : Always Click on the button when you make any changes." textFill="#ae1b1b">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -304,7 +304,7 @@
                                                 <Label text="Color Chosen :" />
                                                 <ColorPicker fx:id="color2" prefHeight="29.0" prefWidth="112.0">
                                                    <HBox.margin>
-                                                      <Insets />
+                                                      <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </ColorPicker>
                                              </children>
