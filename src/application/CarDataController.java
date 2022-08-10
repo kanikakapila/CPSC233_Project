@@ -346,8 +346,8 @@ public class CarDataController {
     	AppearanceCost appearanceCost = new AppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
     	PerformanceLabourCost pLCost=new PerformanceLabourCost();
     	AppearanceLabourCost appCost= new AppearanceLabourCost();
-    	double priceOfCar = performanceCost.getPerformanceCost() + appearanceCost.TotalAppearanceCost(); 
-    	double labourCost= pLCost.CalculatePerfLabourCost() + appCost.CalculateAppLabourCost();
+    	double priceOfCar = performanceCost.getPerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) + appearanceCost.TotalAppearanceCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost); 
+    	double labourCost= pLCost.CalculatePerfLabourCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost) + appCost.CalculateAppLabourCost(colourCost,carTypeCost, seatCost, lightCost, safetyFeaturesCost);
     	
     	costOfCar= priceOfCar + labourCost;
     	return costOfCar;

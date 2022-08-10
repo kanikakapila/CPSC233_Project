@@ -25,8 +25,13 @@ AppearanceCost(){};
 		safetyCost=safety;
 	} 
 	
-	double TotalAppearanceCost() {
-		return colourCost+carTypeCost+seatCost+lightsCost+safetyCost;
+	double TotalAppearanceCost(double colour,double type, double seat, double lights,double safety) {
+		colourCost=colour;
+		carTypeCost=type;
+		seatCost=seat;
+		lightsCost=lights;
+		safetyCost=safety;
+		return colour+type+seat+lights+safety;
 
 
 

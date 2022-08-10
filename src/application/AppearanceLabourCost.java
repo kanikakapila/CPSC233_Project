@@ -11,9 +11,9 @@ public class AppearanceLabourCost extends AppearanceCost {
 	double percentageOfWage=.20;
 
 
-public double CalculateAppLabourCost() {
+public double CalculateAppLabourCost(double colour,double type, double seat, double lights,double safety) {
 	
-	return TotalAppearanceCost()*percentageOfWage;
+	return TotalAppearanceCost(colour,type,seat,lights,safety)*percentageOfWage;
 	
 }
 
