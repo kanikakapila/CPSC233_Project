@@ -13,9 +13,9 @@ public class PerformanceLabourCost extends PerformanceCost {
 	
 	
 	
-	public double CalculatePerfLabourCost() {
+	public double CalculatePerfLabourCost(double engineCost,double fuelCost, double tireCost, double transmissionCost,double hPCost) {
 		
-		return getPerformanceCost()*percentageOfWage;
+		return getPerformanceCost(engineCost,fuelCost,tireCost,transmissionCost,hPCost)*percentageOfWage;
 		
 	}
 }

@@ -29,8 +29,15 @@ PerformanceCost( double costOfEngine,double  costOfTires, double costOfFuel,
 
 	
  // Gets total Cost
-	double getPerformanceCost() {
-		return engineSizeCost + tiresCost + fuelCost + horsepower + transmissionTypeCost;
+	double getPerformanceCost(double costOfEngine,double  costOfTires, double costOfFuel,  
+			double horseCost, double costOfTransmission) {
+		engineSizeCost = costOfEngine; 
+		tiresCost = costOfTires;
+		fuelCost = costOfFuel;
+		horsepower = horseCost;
+		transmissionTypeCost = costOfTransmission; 
+		
+		return costOfEngine+costOfTires+costOfFuel+horseCost+costOfTransmission;
 	}
 	
 	
