@@ -46,6 +46,11 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </ChoiceBox>
+                              <Label text=" Electric Cars will have zero monthly gas cost." textFill="#40dd2b">
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets left="8.0" />
@@ -53,7 +58,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="typeOfTires" text="Type of tires included in the package :">
+                              <Label fx:id="typeOfTires" text="Type of tires included in the package:">
                                  <HBox.margin>
                                     <Insets left="2.0" top="5.0" />
                                  </HBox.margin>
@@ -125,6 +130,11 @@
                               <Label text="HP">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="Choose between 100 and 500" textFill="#33ff00">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
@@ -216,6 +226,11 @@
                               <Insets left="8.0" />
                            </VBox.margin>
                         </HBox>
+                        <Label text="You can select mutliple Features, all cars will have airbags by default." textFill="#00ff04">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
                      </children>
                   </VBox>
                </content></Tab>
