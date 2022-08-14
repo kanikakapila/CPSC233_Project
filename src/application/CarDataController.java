@@ -190,7 +190,7 @@ public class CarDataController {
     
     public double getSafetyFeaturesCost() { 
 		int safetyFeaturesCost = 0;
-		         //Airbags   Antilock   Smart Suspension    Electronic Stability
+		         //Airbags   Anti lock   Smart Suspension    Electronic Stability
 	int[] Prices= {6000,     550,        1800,                 100};
 	if(airBags.isSelected()) { 
 		safetyFeaturesCost += Prices[0];
@@ -472,7 +472,7 @@ public class CarDataController {
     	if (FuelTypeChosenGas==null) {
     		FuelTypeChosenGas="Diesel";
     	}
-    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	
     	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
     	gasPrice= g.getGasPrice(FuelTypeChosenGas);
     	
@@ -526,7 +526,7 @@ public class CarDataController {
     	if (FuelTypeChosenGas==null) {
     		FuelTypeChosenGas="Diesel";
     	}
-    	System.out.println("I choose: "+FuelTypeChosenGas);
+    	
     	MonthlyCost g=new MonthlyCost(FuelTypeChosenGas);
     	gasPrice= g.getGasPrice(FuelTypeChosenGas);
     	
